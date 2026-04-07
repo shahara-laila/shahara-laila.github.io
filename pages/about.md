@@ -7,7 +7,7 @@ permalink: /about/
 
 <div class="about-hero-card">
   <div class="about-hero-photo">
-    <img src="{{ '/assets/images/profile.jpg' | relative_url }}"
+    <img src="{{ '/assets/images/profile.jpeg' | relative_url }}"
          alt="Shahara Laila"
          onerror="this.style.background='linear-gradient(135deg,#4C1D95,#0D9488)'; this.removeAttribute('src');">
   </div>
