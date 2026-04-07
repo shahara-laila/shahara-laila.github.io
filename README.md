@@ -1,8 +1,10 @@
 # Shahara Laila — Academic Portfolio
 
-Personal academic portfolio of **Shahara Laila**, Computer Vision Researcher and ML Engineer.
+I built this portfolio because I needed a single, honest place that represents who I am academically — not a résumé, not a LinkedIn profile, but a space where my research, teaching, and goals live together in one view.
 
-Research focus: medical image analysis, YOLO-based oral carcinoma detection, and deep learning for healthcare applications. Former Lecturer at Varendra University, Rajshahi. B.Sc. in CSE from Jashore University of Science and Technology.
+I am a Computer Vision Researcher and M.Sc. student at MIST, Dhaka, working on YOLO-based oral carcinoma detection. I served as a Lecturer in CSE at Varendra University, Rajshahi, and I am actively pursuing Faculty Positions where I can combine research and teaching in the long term.
+
+The academic job market asks you to present yourself clearly. I wanted a place that does that on my own terms — showing my publications, research direction, teaching experience, and what I am looking for, without the noise of a generic profile. Building it myself also meant I understood every part of it.
 
 **Live site:** [https://shahara-laila.github.io](https://shahara-laila.github.io)
 
