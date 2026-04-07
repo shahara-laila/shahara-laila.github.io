@@ -107,14 +107,24 @@
     text-transform: uppercase;
     margin-bottom: $space-8;
     width: fit-content;
+    max-width: 100%;
+
+    @media (max-width: $bp-sm) {
+      align-items: flex-start;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      padding: 6px $space-3;
+    }
 
     .status-dot {
       width: 6px;
       height: 6px;
+      min-width: 6px; // prevent shrinking
       border-radius: 50%;
       background: #2dd4bf;
       box-shadow: 0 0 6px #2dd4bf;
       animation: status-pulse 2s ease-in-out infinite;
+      margin-top: 3px; // align with first line of wrapped text
     }
   }
 
@@ -127,14 +137,14 @@
 
     .name-first {
       display: block;
-      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-size: clamp(2rem, 10vw, 5.5rem);
       font-weight: $fw-bold;
       color: #EEEAF8;
     }
 
     .name-last {
       display: block;
-      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-size: clamp(2rem, 10vw, 5.5rem);
       font-weight: $fw-bold;
       background: linear-gradient(120deg, #a78bfa 0%, #38bdf8 50%, #2dd4bf 100%);
       -webkit-background-clip: text;
@@ -155,12 +165,21 @@
 
     @media (max-width: $bp-lg) { justify-content: center; }
 
+    @media (max-width: $bp-sm) {
+      gap: $space-2;
+      row-gap: $space-1;
+    }
+
     .role-item {
       font-family: $font-serif;
       font-style: italic;
       font-size: $fs-md;
       color: rgba(238, 234, 248, 0.65);
       font-weight: 400;
+
+      @media (max-width: $bp-sm) {
+        font-size: $fs-sm;
+      }
     }
 
     .role-dot {
@@ -371,6 +390,22 @@
 
       svg { width: 17px; height: 17px; }
     }
+  }
+}
+
+// Disable heavy animations on mobile to improve performance
+@media (max-width: $bp-md) {
+  .hero-orb {
+    animation: none !important;
+  }
+
+  .hero-photo::before {
+    animation: none !important;
+  }
+
+  .hero-name .name-last {
+    animation: none !important;
+    background-position: 0% 50%;
   }
 }
 

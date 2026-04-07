@@ -493,14 +493,12 @@
 }
 
 .blog-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: $space-6;
 
-  .blog-card {
-    flex: 1 1 320px;
-    max-width: 500px;
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -13,7 +13,7 @@ permalink: /contact/
 </p>
 
 <!-- Primary contact cards -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 2.5rem;">
+<div class="contact-primary-grid">
 
   <a href="mailto:your.email@example.com"
      style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1.75rem; background: #fff; border: 1px solid #DDD6FE; border-radius: 1rem; text-decoration: none; transition: all 0.2s ease; box-shadow: 0 1px 4px rgba(76,29,149,0.06);"
@@ -99,6 +99,19 @@ permalink: /contact/
 </div>
 
 <style>
+/* Contact cards grid — responsive */
+.contact-primary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 600px) {
+  .contact-primary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Dark mode overrides for contact cards */
 .dark-mode a[href^="mailto"],
 .dark-mode a[href*="linkedin"] {
