@@ -1,0 +1,23 @@
+- name: GitHub
+  url: ""
+  icon: github
+
+- name: Google Scholar
+  url: ""
+  icon: scholar
+
+- name: LinkedIn
+  url: ""
+  icon: linkedin
+
+- name: ORCID
+  url: ""
+  icon: orcid
+
+- name: ResearchGate
+  url: ""
+  icon: researchgate
+
+- name: Twitter / X
+  url: ""
+  icon: twitter

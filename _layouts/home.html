@@ -1,0 +1,150 @@
+---
+layout: default
+---
+
+{% include hero.html %}
+
+<!-- About Snapshot -->
+<section class="section home-about" id="about">
+  <div class="container">
+    <div class="home-about-grid">
+      <div class="home-about-text">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Aspiring Faculty Member · Computer Vision Researcher</p>
+        <p>M.Sc. student at MIST, Dhaka. Researching YOLO-based oral carcinoma detection. Open to university faculty positions and research collaborations.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="{{ '/about/' | relative_url }}" class="btn btn-outline">
+            More About Me
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+        </div>
+      </div>
+      <div class="home-about-stats">
+        <div class="stat-card">
+          <span class="stat-number">{{ site.profile.publications }}</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">{{ site.profile.teaching_years }}</span>
+          <span class="stat-label">Teaching</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">{{ site.profile.projects }}</span>
+          <span class="stat-label">ML Projects</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">{{ site.profile.students }}</span>
+          <span class="stat-label">Students Taught</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Interests -->
+<section class="section" id="research" style="background: white;">
+  <div class="container">
+    <h2 class="section-title">Research Interests</h2>
+    <p class="section-subtitle">Areas where I focus my research energy and curiosity</p>
+    <div class="interest-grid">
+      {% for interest in site.data.research_interests %}
+      <div class="interest-card">
+        <div class="interest-icon">
+          {% if interest.icon_type == 'medical' %}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          {% elsif interest.icon_type == 'vision' %}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+          {% elsif interest.icon_type == 'detection' %}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          {% elsif interest.icon_type == 'deeplearning' %}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+          {% elsif interest.icon_type == 'health' %}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+          {% else %}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          {% endif %}
+        </div>
+        <h3>{{ interest.title }}</h3>
+        <p>{{ interest.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Featured Publications -->
+<section class="section" id="publications">
+  <div class="container">
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle">Recent research contributions and scholarly work</p>
+    <div class="pub-list">
+      {% assign featured_pubs = site.publications | where: "featured", true | sort: "year" | reverse | limit: 3 %}
+      {% for pub in featured_pubs %}
+        {% include publication-card.html pub=pub %}
+      {% endfor %}
+    </div>
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="{{ '/publications/' | relative_url }}" class="btn btn-outline">
+        All Publications
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Blog Posts -->
+<section class="section" style="background: white;">
+  <div class="container">
+    <h2 class="section-title">From the Blog</h2>
+    <p class="section-subtitle">Thoughts on machine learning, research, and education</p>
+    <div class="blog-grid">
+      {% for post in site.posts limit: 3 %}
+        {% include blog-card.html post=post %}
+      {% endfor %}
+    </div>
+    <div style="margin-top: 2rem; text-align: center;">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Teaching + Connect combined compact strip -->
+<div class="home-bottom-strip">
+  <div class="container">
+    <div class="home-bottom-grid">
+      <div class="home-bottom-item">
+        <div class="home-bottom-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+        </div>
+        <div>
+          <h3>Teaching</h3>
+          <p>University teaching is my vocation. Former Lecturer at Varendra University — seeking faculty positions.</p>
+          <a href="{{ '/teaching/' | relative_url }}" class="home-bottom-link">View courses →</a>
+        </div>
+      </div>
+      <div class="home-bottom-item">
+        <div class="home-bottom-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div>
+          <h3>Let's Connect</h3>
+          <p>Open to research collaborations, teaching opportunities, and academic discussions.</p>
+          <a href="{{ '/contact/' | relative_url }}" class="home-bottom-link">Get in touch →</a>
+        </div>
+      </div>
+      <div class="home-bottom-item">
+        <div class="home-bottom-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div>
+          <h3>Curriculum Vitae</h3>
+          <p>Download or view my full academic CV, including publications and project details.</p>
+          <a href="{{ '/cv/' | relative_url }}" class="home-bottom-link">View CV →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

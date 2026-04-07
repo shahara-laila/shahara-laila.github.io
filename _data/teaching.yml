@@ -1,0 +1,61 @@
+courses:
+  - name: Computer Graphics
+    code: CSE 3101
+    level: undergrad
+    semesters: "Spring 2025, Fall 2025"
+    description: >
+      Core course covering fundamental concepts of 2D and 3D graphics, including
+      rendering pipelines, transformations, rasterization, and GPU programming.
+      Students implement graphics algorithms and work with OpenGL/WebGL.
+    topics:
+      - 2D and 3D transformations
+      - Rasterization and scan conversion
+      - Clipping algorithms
+      - Lighting and shading models
+      - Texture mapping
+
+  - name: Computer Graphics Lab
+    code: CSE 3102
+    level: undergrad
+    semesters: "Spring 2025, Fall 2025"
+    description: >
+      Practical lab companion to Computer Graphics, where students implement
+      rendering algorithms, work with graphics APIs, and build interactive
+      visualizations and small graphics applications.
+    topics:
+      - OpenGL programming
+      - Line and circle drawing algorithms
+      - Polygon filling techniques
+      - 3D object rendering
+      - Animation fundamentals
+
+  - name: Data Structure Lab
+    code: CSE 2102
+    level: undergrad
+    semesters: "Spring 2025"
+    description: >
+      Hands-on laboratory course reinforcing core data structure concepts through
+      implementation. Students code linked lists, trees, graphs, and sorting
+      algorithms from scratch in C and Python.
+    topics:
+      - Linked lists and stacks
+      - Binary trees and BST
+      - Graph traversal (BFS/DFS)
+      - Sorting algorithm implementation
+      - Complexity analysis in practice
+
+philosophy: >
+  I believe that the best way to understand a concept deeply is to explain it simply.
+  My teaching philosophy centers on bridging abstract theory with practical implementation —
+  using code demonstrations, visual walkthroughs, and real problems students encounter
+  in their own projects. I aim to build confidence and curiosity, not just technical
+  competence. A student who leaves my class should feel comfortable asking "why does
+  this work?" and comfortable debugging when it doesn't.
+
+stats:
+  - number: "3"
+    label: "Courses Taught"
+  - number: "100+"
+    label: "Students"
+  - number: "1"
+    label: "Year Experience"

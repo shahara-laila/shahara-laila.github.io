@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" {% if page.dir %}dir="{{ page.dir }}"{% endif %}>
+<head>
+  {% include head.html %}
+</head>
+<body>
+  {% include nav.html %}
+
+  <main id="main-content" tabindex="-1">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <!-- Main JS -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+
+  {% if page.math %}
+    {% include katex.html %}
+  {% endif %}
+
+  {% if page.comments %}
+    {% include giscus.html %}
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% comment %}
+  Giscus comments — configure at https://giscus.app after:
+  1. Enabling GitHub Discussions on the repository
+  2. Installing the giscus GitHub App on the repo
+  3. Replacing the placeholder values below with real ones from giscus.app
+
+  Until configured, this include renders nothing.
+{% endcomment %}
+{% if site.giscus.repo and site.giscus.repo != "" and site.giscus.repo_id and site.giscus.repo_id != "" %}
+<div class="comments-section">
+  <h2>Discussion</h2>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.giscus.repo }}"
+    data-repo-id="{{ site.giscus.repo_id }}"
+    data-category="{{ site.giscus.category | default: 'General' }}"
+    data-category-id="{{ site.giscus.category_id }}"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <noscript>
+    <p>Please enable JavaScript to view the comments powered by <a href="https://giscus.app">Giscus</a>.</p>
+  </noscript>
+</div>
+{% endif %}

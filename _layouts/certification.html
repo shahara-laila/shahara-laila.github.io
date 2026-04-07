@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<div class="nav-offset"></div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="cert-page-meta">
+      <span class="cert-page-type">{{ page.cert_type | default: "Certification" }}</span>
+      {% if page.status %}<span class="cert-page-status cert-page-status--{{ page.status | downcase | replace: ' ', '-' }}">{{ page.status }}</span>{% endif %}
+    </div>
+    <h1 class="page-header-title">{{ page.title }}</h1>
+    <p class="page-header-subtitle">{{ page.issuer }}{% if page.year %} · {{ page.year }}{% endif %}</p>
+    {% if page.credential_url %}
+    <div style="margin-top: 1.5rem;">
+      <a href="{{ page.credential_url }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        View Credential
+      </a>
+    </div>
+    {% elsif page.credential_url == "" or page.credential_url == nil %}{% comment %}no credential url — show nothing{% endcomment %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="cert-detail-layout">
+
+      <div class="cert-detail-content">
+        {{ content }}
+      </div>
+
+      <aside class="cert-detail-sidebar">
+        <div class="sidebar-block">
+          <h4 class="sidebar-label">Details</h4>
+          <ul class="cert-meta-list">
+            <li>
+              <span class="cert-meta-key">Issuer</span>
+              <span class="cert-meta-val">{{ page.issuer }}</span>
+            </li>
+            {% if page.year %}
+            <li>
+              <span class="cert-meta-key">Year</span>
+              <span class="cert-meta-val">{{ page.year }}</span>
+            </li>
+            {% endif %}
+            {% if page.cert_type %}
+            <li>
+              <span class="cert-meta-key">Type</span>
+              <span class="cert-meta-val">{{ page.cert_type }}</span>
+            </li>
+            {% endif %}
+            {% if page.topics %}
+            <li>
+              <span class="cert-meta-key">Topics</span>
+              <div class="cert-topics-list">
+                {% for t in page.topics %}
+                <span class="tag">{{ t }}</span>
+                {% endfor %}
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+
+        {% if page.credential_url %}
+        <div class="sidebar-block">
+          <a href="{{ page.credential_url }}" class="sidebar-action-btn sidebar-action-btn--primary" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            View Credential
+          </a>
+        </div>
+        {% endif %}
+
+        <div class="sidebar-block sidebar-block--flat">
+          <a href="{{ '/certifications/' | relative_url }}" class="sidebar-back">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            All Certifications
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div>

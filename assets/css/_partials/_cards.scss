@@ -1,0 +1,626 @@
+// =============================================================================
+// CARDS — Publication, Project, Blog Post, Research Interest
+// =============================================================================
+
+// Base card
+.card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
+
+  .dark-mode & {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-cta, 0.3);
+  }
+}
+
+// Research interest cards
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: $space-5;
+  margin-top: $space-8;
+}
+
+.interest-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  text-align: center;
+  transition: all $transition-base;
+
+  .dark-mode & {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+    border-color: $color-cta;
+
+    .interest-icon {
+      background: $color-cta;
+      color: white;
+    }
+  }
+
+  .interest-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: $radius-xl;
+    background: rgba($color-cta, 0.1);
+    color: $color-cta;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $space-4;
+    font-size: 1.5rem;
+    transition: all $transition-base;
+
+    .dark-mode & {
+      background: rgba($color-cta, 0.15);
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  h3 {
+    font-size: $fs-base;
+    font-weight: $fw-semibold;
+    color: $color-primary;
+    margin-bottom: $space-2;
+    font-family: $font-sans;
+
+    .dark-mode & {
+      color: $color-dark-text;
+    }
+  }
+
+  p {
+    font-size: $fs-sm;
+    color: $color-muted;
+    line-height: $lh-normal;
+    margin-bottom: 0;
+  }
+}
+
+// Publication card
+.pub-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  transition: all $transition-base;
+  display: flex;
+  gap: $space-5;
+
+  .dark-mode & {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+  }
+
+  &:hover {
+    box-shadow: $shadow-md;
+    border-color: rgba($color-accent, 0.3);
+  }
+
+  .pub-year {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, $color-primary, $color-accent);
+    border-radius: $radius-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: $fw-bold;
+    font-size: $fs-sm;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .pub-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pub-venue-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    padding: $space-1 $space-3;
+    background: rgba($color-accent, 0.1);
+    color: $color-accent;
+    border-radius: $radius-full;
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: $space-3;
+
+    .dark-mode & {
+      background: rgba($color-accent, 0.2);
+      color: #a78bfa;
+    }
+  }
+
+  .pub-title {
+    font-family: $font-serif;
+    font-size: $fs-md;
+    color: $color-primary;
+    margin-bottom: $space-2;
+    line-height: $lh-snug;
+    font-weight: $fw-bold;
+
+    .dark-mode & {
+      color: $color-dark-text;
+    }
+
+    a {
+      color: inherit;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-cta;
+      }
+    }
+  }
+
+  .pub-authors {
+    font-size: $fs-sm;
+    color: $color-muted;
+    margin-bottom: $space-3;
+
+    strong {
+      color: $color-text;
+      font-weight: $fw-semibold;
+
+      .dark-mode & {
+        color: $color-dark-text;
+      }
+    }
+  }
+
+  .pub-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-3;
+    align-items: center;
+    margin-top: $space-3;
+
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-1;
+      font-size: $fs-xs;
+      font-weight: $fw-semibold;
+      color: $color-cta;
+      padding: $space-1 $space-3;
+      border: 1px solid rgba($color-cta, 0.3);
+      border-radius: $radius-full;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $color-cta;
+        color: white;
+        border-color: $color-cta;
+      }
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+
+    .pub-year {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+// Project card — no image, content-only
+.project-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  transition: all $transition-base;
+  display: flex;
+  flex-direction: column;
+  border-top: 3px solid transparent;
+
+  &:nth-child(4n+1) { border-top-color: $color-cta; }
+  &:nth-child(4n+2) { border-top-color: $color-accent; }
+  &:nth-child(4n+3) { border-top-color: #38bdf8; }
+  &:nth-child(4n+4) { border-top-color: #a78bfa; }
+
+  .dark-mode & {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-cta, 0.25);
+  }
+
+  .project-body {
+    padding: $space-6;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-3;
+    margin-bottom: $space-4;
+    flex-wrap: wrap;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+
+  .project-category {
+    font-size: 10px;
+    font-weight: $fw-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: $color-muted;
+    background: $color-highlight;
+    padding: 2px 8px;
+    border-radius: $radius-full;
+    flex-shrink: 0;
+
+    .dark-mode & {
+      background: $color-dark-highlight;
+      color: $color-dark-muted;
+    }
+  }
+
+  .project-title {
+    font-family: $font-serif;
+    font-size: $fs-lg;
+    color: $color-primary;
+    margin-bottom: $space-2;
+    line-height: $lh-snug;
+
+    .dark-mode & { color: $color-dark-text; }
+
+    a {
+      color: inherit;
+      &:hover { color: $color-cta; }
+    }
+  }
+
+  .project-desc {
+    font-size: $fs-sm;
+    color: $color-muted;
+    line-height: $lh-relaxed;
+    flex: 1;
+    margin-bottom: $space-5;
+
+    .dark-mode & { color: $color-dark-muted; }
+  }
+
+  .project-links {
+    display: flex;
+    gap: $space-4;
+    margin-top: auto;
+    padding-top: $space-4;
+    border-top: 1px solid $color-border;
+
+    .dark-mode & { border-color: $color-dark-border; }
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: $color-muted;
+    transition: color $transition-fast;
+    text-decoration: none;
+
+    &:hover { color: $color-cta; }
+
+    svg { width: 15px; height: 15px; }
+
+    &--details {
+      margin-left: auto;
+      color: $color-accent;
+      .dark-mode & { color: #a78bfa; }
+      &:hover { color: $color-cta; }
+    }
+  }
+}
+
+// Blog post card
+.blog-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: all $transition-base;
+  display: flex;
+  flex-direction: column;
+
+  .dark-mode & {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+    border-color: rgba($color-cta, 0.3);
+  }
+
+  .blog-card-header {
+    padding: $space-5 $space-5 0;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-3;
+  }
+
+  .blog-card-date {
+    font-size: $fs-xs;
+    color: $color-muted;
+    font-weight: $fw-medium;
+  }
+
+  .blog-card-reading-time {
+    font-size: $fs-xs;
+    color: $color-muted;
+    display: flex;
+    align-items: center;
+    gap: $space-1;
+
+    &::before {
+      content: '·';
+    }
+  }
+
+  .blog-card-title {
+    font-family: $font-serif;
+    font-size: $fs-lg;
+    color: $color-primary;
+    line-height: $lh-snug;
+    margin-bottom: $space-3;
+
+    .dark-mode & {
+      color: $color-dark-text;
+    }
+
+    a {
+      color: inherit;
+
+      &:hover {
+        color: $color-cta;
+      }
+    }
+  }
+
+  .blog-card-excerpt {
+    padding: 0 $space-5;
+    font-size: $fs-sm;
+    color: $color-muted;
+    line-height: $lh-relaxed;
+    flex: 1;
+  }
+
+  .blog-card-footer {
+    padding: $space-4 $space-5 $space-5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: $space-3;
+    margin-top: auto;
+  }
+
+  .blog-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+
+  .read-more {
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+    color: $color-cta;
+    display: inline-flex;
+    align-items: center;
+    gap: $space-1;
+    transition: gap $transition-fast;
+
+    &:hover {
+      gap: $space-2;
+      color: $color-cta-dark;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Grid layouts
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $space-6;
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.blog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-6;
+
+  .blog-card {
+    flex: 1 1 320px;
+    max-width: 500px;
+  }
+}
+
+// Research project cards (research page)
+.research-projects {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  margin-top: $space-8;
+}
+
+.research-project-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: $space-8;
+  transition: all $transition-base;
+  border-left: 4px solid $color-border;
+
+  &.featured {
+    border-left-color: $color-cta;
+  }
+
+  &:not(.featured) {
+    border-left-color: $color-accent;
+  }
+
+  &:hover {
+    box-shadow: $shadow-md;
+    border-color: rgba($color-cta, 0.25);
+  }
+
+  .dark-mode & {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+
+    &.featured { border-left-color: $color-cta; }
+    &:not(.featured) { border-left-color: #7c3aed; }
+  }
+
+  .rp-header {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-4;
+    flex-wrap: wrap;
+  }
+
+  .rp-badge {
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: $radius-full;
+
+    &--thesis {
+      background: rgba($color-cta, 0.1);
+      color: darken($color-cta, 5%);
+      .dark-mode & { background: rgba($color-cta, 0.2); color: #5eead4; }
+    }
+
+    &--project {
+      background: rgba($color-accent, 0.1);
+      color: $color-accent;
+      .dark-mode & { background: rgba($color-accent, 0.2); color: #c4b5fd; }
+    }
+  }
+
+  .rp-status {
+    font-size: $fs-xs;
+    color: $color-muted;
+    .dark-mode & { color: $color-dark-muted; }
+
+    &--complete::before {
+      content: '✓ ';
+      color: $color-cta;
+      font-weight: $fw-bold;
+    }
+
+    &--inprogress::before {
+      content: '● ';
+      color: #f59e0b;
+    }
+  }
+
+  .rp-title {
+    font-family: $font-serif;
+    font-size: $fs-lg;
+    font-weight: $fw-bold;
+    color: $color-primary;
+    line-height: $lh-snug;
+    margin-bottom: $space-3;
+
+    .dark-mode & { color: #e8e4f8; }
+  }
+
+  .rp-desc {
+    font-size: $fs-sm;
+    color: $color-muted;
+    line-height: $lh-relaxed;
+    margin-bottom: $space-5;
+
+    .dark-mode & { color: $color-dark-muted; }
+  }
+
+  .rp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-bottom: $space-4;
+  }
+
+  .rp-links {
+    margin-top: $space-3;
+  }
+}
+
+// Small button variant
+.btn--sm {
+  padding: $space-2 $space-4 !important;
+  font-size: $fs-sm !important;
+}

@@ -1,0 +1,202 @@
+// =============================================================================
+// PUBLICATIONS PAGE
+// =============================================================================
+
+.publications-page {
+  .pub-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-bottom: $space-8;
+
+    .filter-btn {
+      padding: $space-2 $space-4;
+      border-radius: $radius-full;
+      font-size: $fs-sm;
+      font-weight: $fw-medium;
+      border: 1px solid $color-border;
+      background: $color-surface;
+      color: $color-muted;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      .dark-mode & {
+        background: $color-dark-surface;
+        border-color: $color-dark-border;
+        color: $color-dark-muted;
+      }
+
+      &:hover,
+      &.active {
+        background: $color-accent;
+        color: white;
+        border-color: $color-accent;
+      }
+    }
+  }
+
+  .pub-year-group {
+    margin-bottom: $space-10;
+
+    .pub-year-heading {
+      font-family: $font-sans;
+      font-size: $fs-sm;
+      font-weight: $fw-semibold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $color-muted;
+      margin-bottom: $space-4;
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+
+      &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: $color-border;
+
+        .dark-mode & {
+          background: $color-dark-border;
+        }
+      }
+    }
+  }
+}
+
+// Single publication page
+.publication-page {
+  .pub-header {
+    background: linear-gradient(135deg, #1E1B4B, #4C1D95);
+    padding: $space-20 0 $space-12;
+    margin-bottom: $space-12;
+
+    .container {
+      max-width: $content-width;
+    }
+  }
+
+  .pub-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    background: rgba($color-cta, 0.2);
+    color: #5eead4;
+    padding: $space-1 $space-4;
+    border-radius: $radius-full;
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: $space-5;
+  }
+
+  .pub-full-title {
+    font-family: $font-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    color: white;
+    line-height: $lh-snug;
+    margin-bottom: $space-5;
+  }
+
+  .pub-authors-list {
+    color: rgba(255,255,255,0.7);
+    font-size: $fs-md;
+    margin-bottom: $space-4;
+
+    strong {
+      color: white;
+    }
+  }
+
+  .pub-venue-full {
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    font-size: $fs-base;
+  }
+
+  .pub-details {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 $space-6;
+
+    @media (max-width: $bp-md) {
+      padding: 0 $space-4;
+    }
+
+    .pub-abstract {
+      margin-bottom: $space-8;
+
+      h2 {
+        font-size: $fs-lg;
+        margin-bottom: $space-4;
+      }
+
+      p {
+        font-size: $fs-md;
+        line-height: $lh-relaxed;
+        color: $color-muted;
+
+        .dark-mode & {
+          color: $color-dark-muted;
+        }
+      }
+    }
+
+    .pub-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $space-3;
+      padding: $space-6 0;
+      border-top: 1px solid $color-border;
+      border-bottom: 1px solid $color-border;
+      margin-bottom: $space-8;
+
+      .dark-mode & {
+        border-color: $color-dark-border;
+      }
+    }
+
+    .pub-keywords {
+      margin-bottom: $space-8;
+
+      h3 {
+        font-size: $fs-base;
+        font-family: $font-sans;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $color-muted;
+        margin-bottom: $space-3;
+
+        .dark-mode & {
+          color: $color-dark-muted;
+        }
+      }
+
+      .keywords-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $space-2;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .pub-citation {
+      background: $color-highlight;
+      border-radius: $radius-md;
+      padding: $space-5;
+      font-family: $font-mono;
+      font-size: $fs-sm;
+      line-height: $lh-relaxed;
+      color: $color-text;
+      overflow-x: auto;
+
+      .dark-mode & {
+        background: $color-dark-highlight;
+        color: $color-dark-text;
+      }
+    }
+  }
+}

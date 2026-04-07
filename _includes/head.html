@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+{% seo %}
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ page.url | prepend: site.url }}">
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231D4ED8'/><text x='50' y='73' font-size='68' font-family='Georgia,serif' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
+
+<!-- Dark mode: prevent flash -->
+<script>
+  (function() {
+    var d = localStorage.getItem('darkMode');
+    if (d === 'true') document.documentElement.classList.add('dark-init');
+  })();
+</script>
+<style>
+  html.dark-init body { background-color: #0F0E17; }
+</style>
+
+{% if page.math %}
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+{% endif %}

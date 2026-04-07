@@ -1,0 +1,66 @@
+// =============================================================================
+// DARK MODE OVERRIDES
+// Applied via body.dark-mode class
+// =============================================================================
+
+body.dark-mode {
+  color: $color-dark-text;
+  background-color: $color-dark-bg;
+
+  // Nav
+  .site-nav.scrolled {
+    background: rgba($color-dark-surface, 0.95);
+    box-shadow: 0 1px 0 $color-dark-border;
+  }
+
+  .nav-logo {
+    color: $color-dark-text;
+  }
+
+  .nav-links li a {
+    color: $color-dark-text;
+
+    &:hover, &.active {
+      color: #5eead4;
+      background: rgba(13, 148, 136, 0.1);
+    }
+  }
+
+  // Footer
+  .site-footer {
+    background: #0A0918;
+    border-color: $color-dark-border;
+  }
+
+  // About timeline
+  .timeline-item::before {
+    background: $color-dark-border;
+  }
+
+  // Contact form
+  .contact-form input,
+  .contact-form textarea {
+    background: $color-dark-surface;
+    border-color: $color-dark-border;
+    color: $color-dark-text;
+
+    &::placeholder {
+      color: $color-dark-muted;
+    }
+
+    &:focus {
+      border-color: $color-cta;
+      background: rgba($color-cta, 0.05);
+    }
+  }
+
+  // CV page
+  .cv-embed {
+    border-color: $color-dark-border;
+  }
+
+  // Page header
+  .page-header {
+    background: linear-gradient(135deg, #0F0E17 0%, #1A1828 100%);
+  }
+}

@@ -1,0 +1,23 @@
+- title: Medical Image Analysis
+  icon_type: medical
+  description: Developing AI-driven tools for clinical image analysis, including cancer detection from histopathological and clinical photographs using deep learning.
+
+- title: Computer Vision
+  icon_type: vision
+  description: Deep learning approaches for image classification, object detection, and visual feature learning across domains.
+
+- title: Object Detection (YOLO)
+  icon_type: detection
+  description: Applying YOLO-based architectures with box annotation for precise localization of pathological regions in medical images.
+
+- title: Deep Learning
+  icon_type: deeplearning
+  description: Designing and training deep neural networks including CNNs and transformer-based architectures for real-world classification and detection tasks.
+
+- title: AI for Healthcare
+  icon_type: health
+  description: Bridging the gap between clinical needs and ML capabilities — building diagnostic support tools that are accurate, interpretable, and deployable in low-resource settings.
+
+- title: Machine Learning
+  icon_type: ml
+  description: Supervised and unsupervised learning methods, model evaluation, feature engineering, and end-to-end ML pipeline development.

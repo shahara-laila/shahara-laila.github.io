@@ -1,0 +1,433 @@
+// =============================================================================
+// HERO — World-class researcher portfolio entry point
+// =============================================================================
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #07061A;
+
+  // --- Background layers ---
+  // 1. Base gradient
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #07061A 0%, #0E0B2E 40%, #160E3A 70%, #08061C 100%);
+  }
+
+  // 2. Animated orbs
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+
+    &--teal {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.22) 0%, transparent 70%);
+      bottom: -100px;
+      left: -100px;
+      animation: orb-drift-1 12s ease-in-out infinite alternate;
+    }
+
+    &--violet {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(109, 40, 217, 0.2) 0%, transparent 70%);
+      top: -50px;
+      right: 5%;
+      animation: orb-drift-2 15s ease-in-out infinite alternate;
+    }
+
+    &--indigo {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+      top: 50%;
+      left: 40%;
+      animation: orb-drift-3 18s ease-in-out infinite alternate;
+    }
+  }
+
+  // 3. Dot grid
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.055) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  // --- Container ---
+  .hero-container {
+    position: relative;
+    z-index: 1;
+    max-width: $max-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: calc(#{$nav-height} + 2rem) $space-6 $space-16;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: $space-12;
+    align-items: center;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: $space-12;
+      padding-top: calc(#{$nav-height} + 3rem);
+    }
+  }
+
+  // ---- LEFT SIDE ----
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $bp-lg) { align-items: center; }
+  }
+
+  // Status badge
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    background: rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    color: #5eead4;
+    padding: 6px $space-4;
+    border-radius: $radius-full;
+    font-size: 11px;
+    font-weight: $fw-semibold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: $space-8;
+    width: fit-content;
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2dd4bf;
+      box-shadow: 0 0 6px #2dd4bf;
+      animation: status-pulse 2s ease-in-out infinite;
+    }
+  }
+
+  // Name
+  .hero-name {
+    font-family: $font-serif;
+    line-height: 0.95;
+    margin-bottom: $space-5;
+    letter-spacing: -0.02em;
+
+    .name-first {
+      display: block;
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-weight: $fw-bold;
+      color: #EEEAF8;
+    }
+
+    .name-last {
+      display: block;
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-weight: $fw-bold;
+      background: linear-gradient(120deg, #a78bfa 0%, #38bdf8 50%, #2dd4bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 8s ease infinite;
+    }
+  }
+
+  // Role line
+  .hero-role {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-6;
+    flex-wrap: wrap;
+
+    @media (max-width: $bp-lg) { justify-content: center; }
+
+    .role-item {
+      font-family: $font-serif;
+      font-style: italic;
+      font-size: $fs-md;
+      color: rgba(238, 234, 248, 0.65);
+      font-weight: 400;
+    }
+
+    .role-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba($color-cta, 0.5);
+      flex-shrink: 0;
+    }
+  }
+
+  // Divider line
+  .hero-line {
+    width: 56px;
+    height: 2px;
+    background: linear-gradient(90deg, $color-cta, transparent);
+    border-radius: $radius-full;
+    margin-bottom: $space-6;
+
+    @media (max-width: $bp-lg) {
+      margin-left: auto;
+      margin-right: auto;
+      background: linear-gradient(90deg, transparent, $color-cta, transparent);
+    }
+  }
+
+  // Bio
+  .hero-bio {
+    font-size: $fs-base;
+    color: rgba(238, 234, 248, 0.55);
+    line-height: 1.85;
+    max-width: 500px;
+    margin-bottom: $space-8;
+
+    @media (max-width: $bp-lg) {
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // CTAs
+  .hero-ctas {
+    display: flex;
+    gap: $space-3;
+    margin-bottom: $space-8;
+    flex-wrap: wrap;
+
+    @media (max-width: $bp-lg) { justify-content: center; }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-2;
+      padding: 14px $space-8;
+      background: linear-gradient(135deg, $color-cta 0%, darken($color-cta, 8%) 100%);
+      color: white;
+      border-radius: $radius-full;
+      font-weight: $fw-semibold;
+      font-size: $fs-base;
+      text-decoration: none;
+      transition: all $transition-base;
+      box-shadow: 0 0 0 0 rgba($color-cta, 0.4);
+
+      &:hover {
+        transform: translateY(-2px);
+        color: white;
+        box-shadow: 0 8px 28px rgba($color-cta, 0.45), 0 0 0 1px rgba($color-cta, 0.3);
+      }
+
+      svg { width: 17px; height: 17px; flex-shrink: 0; }
+    }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-2;
+      padding: 13px $space-6;
+      background: rgba(255,255,255,0.05);
+      color: rgba(238, 234, 248, 0.8);
+      border-radius: $radius-full;
+      font-weight: $fw-semibold;
+      font-size: $fs-base;
+      border: 1px solid rgba(255,255,255,0.12);
+      text-decoration: none;
+      transition: all $transition-base;
+
+      &:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.25);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      svg { width: 17px; height: 17px; flex-shrink: 0; }
+    }
+  }
+
+  // Stats row
+  .hero-stats {
+    display: flex;
+    gap: $space-8;
+    padding-top: $space-6;
+    border-top: 1px solid rgba(255,255,255,0.07);
+
+    @media (max-width: $bp-lg) { justify-content: center; }
+    @media (max-width: $bp-sm) { gap: $space-5; }
+
+    .stat {
+      .stat-num {
+        display: block;
+        font-family: $font-serif;
+        font-size: $fs-xl;
+        font-weight: $fw-bold;
+        color: #EEEAF8;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .stat-label {
+        display: block;
+        font-size: 11px;
+        color: rgba(238, 234, 248, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: $fw-medium;
+      }
+    }
+  }
+
+  // ---- RIGHT SIDE ----
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-6;
+
+    @media (max-width: $bp-lg) { order: -1; }
+  }
+
+  // Photo
+  .hero-photo {
+    position: relative;
+    width: 300px;
+    height: 300px;
+
+    @media (max-width: $bp-md) {
+      width: 220px;
+      height: 220px;
+    }
+
+    // Spinning gradient border
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #0D9488, #6D28D9, #38bdf8, #0D9488);
+      animation: spin-slow 8s linear infinite;
+      z-index: 0;
+    }
+
+    // Outer glow
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba($color-cta, 0.12) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #07061A;
+      background: linear-gradient(135deg, #1a1540, #0D9488);
+    }
+  }
+
+  // Social icons row
+  .hero-social {
+    display: flex;
+    gap: $space-3;
+
+    a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $radius-full;
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.45);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: all $transition-fast;
+
+      &:hover {
+        background: rgba($color-cta, 0.15);
+        color: #5eead4;
+        border-color: rgba($color-cta, 0.35);
+        transform: translateY(-3px);
+      }
+
+      svg { width: 17px; height: 17px; }
+    }
+  }
+}
+
+// Scroll hint
+.hero-scroll {
+  position: absolute;
+  bottom: $space-8;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  color: rgba(255,255,255,0.2);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: scroll-bounce 2.5s ease-in-out infinite;
+
+  svg { width: 18px; height: 18px; }
+
+  @media (max-width: $bp-md) { display: none; }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #2dd4bf; }
+  50% { opacity: 0.5; box-shadow: 0 0 2px #2dd4bf; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orb-drift-1 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(60px, -40px) scale(1.15); }
+}
+
+@keyframes orb-drift-2 {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-50px, 60px) scale(0.9); }
+}
+
+@keyframes orb-drift-3 {
+  from { transform: translate(0, 0); }
+  to { transform: translate(40px, -30px); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.2; }
+  50% { transform: translateX(-50%) translateY(7px); opacity: 0.35; }
+}

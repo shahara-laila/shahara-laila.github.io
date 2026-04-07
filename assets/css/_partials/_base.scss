@@ -1,0 +1,405 @@
+// =============================================================================
+// BASE STYLES
+// =============================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] { display: none !important; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $fs-base;
+  line-height: $lh-relaxed;
+  color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Dark mode body
+body.dark-mode {
+  color: $color-dark-text;
+  background-color: $color-dark-bg;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-serif;
+  font-weight: $fw-bold;
+  line-height: $lh-tight;
+  color: $color-primary;
+
+  .dark-mode & {
+    color: $color-dark-text;
+  }
+}
+
+h1 { font-size: $fs-3xl; }
+h2 { font-size: $fs-2xl; }
+h3 { font-size: $fs-xl; }
+h4 { font-size: $fs-lg; }
+h5 { font-size: $fs-md; }
+h6 { font-size: $fs-base; }
+
+// Links
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-cta;
+  }
+}
+
+// Paragraphs
+p {
+  margin-bottom: $space-4;
+  line-height: $lh-relaxed;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lists
+ul, ol {
+  padding-left: $space-6;
+  margin-bottom: $space-4;
+
+  li {
+    margin-bottom: $space-2;
+    line-height: $lh-relaxed;
+  }
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Code
+code {
+  font-family: $font-mono;
+  font-size: 0.875em;
+  background: $color-highlight;
+  color: $color-primary;
+  padding: 0.15em 0.4em;
+  border-radius: $radius-sm;
+
+  .dark-mode & {
+    background: $color-dark-highlight;
+    color: #c4b5fd;
+  }
+}
+
+pre {
+  font-family: $font-mono;
+  font-size: $fs-sm;
+  background: #1e1b4b;
+  color: #e8e6f0;
+  padding: $space-6;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  margin-bottom: $space-6;
+  line-height: $lh-relaxed;
+
+  code {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-left: 4px solid $color-cta;
+  padding: $space-4 $space-6;
+  margin: $space-6 0;
+  background: $color-highlight;
+  border-radius: 0 $radius-md $radius-md 0;
+  font-style: italic;
+  color: $color-muted;
+
+  .dark-mode & {
+    background: $color-dark-highlight;
+    color: $color-dark-muted;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Horizontal rule
+hr {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: $space-12 0;
+
+  .dark-mode & {
+    border-color: $color-dark-border;
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $space-6;
+  font-size: $fs-sm;
+
+  th, td {
+    padding: $space-3 $space-4;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+
+    .dark-mode & {
+      border-color: $color-dark-border;
+    }
+  }
+
+  th {
+    font-weight: $fw-semibold;
+    background: $color-highlight;
+    color: $color-primary;
+
+    .dark-mode & {
+      background: $color-dark-highlight;
+      color: $color-dark-text;
+    }
+  }
+
+  tr:hover td {
+    background: rgba($color-highlight, 0.5);
+  }
+}
+
+// Focus styles (accessibility)
+:focus-visible {
+  outline: 2px solid $color-cta;
+  outline-offset: 2px;
+}
+
+// Selection
+::selection {
+  background: rgba($color-cta, 0.2);
+  color: $color-text;
+}
+
+// Container
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+
+  @media (max-width: $bp-md) {
+    padding: 0 $space-4;
+  }
+}
+
+// Content width (reading)
+.content-width {
+  max-width: $content-width;
+  margin: 0 auto;
+}
+
+// Section spacing
+.section {
+  padding: $space-20 0;
+
+  @media (max-width: $bp-md) {
+    padding: $space-12 0;
+  }
+}
+
+// Section headings
+.section-title {
+  font-size: $fs-2xl;
+  color: $color-primary;
+  margin-bottom: $space-3;
+  position: relative;
+
+  .dark-mode & {
+    color: $color-dark-text;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: $color-cta;
+    margin-top: $space-3;
+    border-radius: $radius-full;
+  }
+}
+
+.section-subtitle {
+  color: $color-muted;
+  font-size: $fs-md;
+  margin-bottom: $space-10;
+  max-width: 600px;
+
+  .dark-mode & {
+    color: $color-dark-muted;
+  }
+}
+
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  border-radius: $radius-full;
+  font-weight: $fw-semibold;
+  font-size: $fs-base;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  font-family: $font-sans;
+
+  &-primary {
+    background: $color-cta;
+    color: white;
+
+    &:hover {
+      background: $color-cta-dark;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+
+    .dark-mode & {
+      color: $color-dark-text;
+      border-color: $color-dark-border;
+    }
+
+    &:hover {
+      background: $color-primary;
+      color: white;
+      transform: translateY(-1px);
+    }
+  }
+
+  &-ghost {
+    background: transparent;
+    color: $color-accent;
+
+    &:hover {
+      background: $color-highlight;
+      color: $color-primary;
+    }
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+}
+
+// Tags/Pills
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-3;
+  background: rgba($color-cta, 0.1);
+  color: $color-cta-dark;
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background $transition-fast;
+
+  .dark-mode & {
+    background: rgba($color-cta, 0.2);
+    color: #5eead4;
+  }
+
+  &:hover {
+    background: rgba($color-cta, 0.2);
+    color: $color-cta-dark;
+    text-decoration: none;
+  }
+}
+
+// Badges
+.badge {
+  display: inline-block;
+  padding: $space-1 $space-2;
+  border-radius: $radius-sm;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  background: $color-highlight;
+  color: $color-accent;
+
+  .dark-mode & {
+    background: $color-dark-highlight;
+    color: #a78bfa;
+  }
+}
+
+// Content prose areas — consistent list reset so component CSS wins cleanly
+.cert-detail-content,
+.project-content,
+.cert-detail-content ul,
+.project-content ul {
+  // Ensure base list-style doesn't override our custom dot bullets
+  list-style: none;
+  padding-left: 0;
+}
+
+// Smooth theme transition (only during toggle, not on page load)
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 200ms ease,
+    box-shadow 300ms ease !important;
+}
+
+// Skip to main content (accessibility)
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: $space-4;
+  background: $color-cta;
+  color: white;
+  padding: $space-3 $space-6;
+  border-radius: $radius-md;
+  font-weight: $fw-semibold;
+  z-index: 9999;
+  transition: top $transition-fast;
+
+  &:focus {
+    top: $space-4;
+  }
+}

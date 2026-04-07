@@ -1,0 +1,28 @@
+<a class="skip-to-content" href="#main-content">Skip to main content</a>
+
+<nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="{{ site.author.name }} home">
+      {{ site.author.name | split: ' ' | first }}<span>.</span>
+    </a>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      {% for item in site.data.navigation %}
+      <li>
+        <a href="{{ item.url | relative_url }}"
+           {% if page.url == item.url or page.url contains item.url and item.url != '/' %}class="active" aria-current="page"{% endif %}>
+          {{ item.title }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="nav-actions">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
