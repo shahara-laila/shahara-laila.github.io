@@ -112,19 +112,25 @@
     @media (max-width: $bp-sm) {
       align-items: flex-start;
       font-size: 10px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       padding: 6px $space-3;
+      max-width: min(300px, 100%);
     }
 
     .status-dot {
       width: 6px;
       height: 6px;
       min-width: 6px; // prevent shrinking
+      flex-shrink: 0;
       border-radius: 50%;
       background: #2dd4bf;
       box-shadow: 0 0 6px #2dd4bf;
       animation: status-pulse 2s ease-in-out infinite;
-      margin-top: 3px; // align with first line of wrapped text
+
+      // Only push down on mobile where text can wrap to 2 lines
+      @media (max-width: $bp-sm) {
+        margin-top: 4px;
+      }
     }
   }
 
@@ -171,14 +177,14 @@
     }
 
     .role-item {
-      font-family: $font-serif;
-      font-style: italic;
+      font-family: $font-sans;
+      font-weight: $fw-medium;
       font-size: $fs-md;
-      color: rgba(238, 234, 248, 0.65);
-      font-weight: 400;
+      color: rgba(238, 234, 248, 0.72);
+      letter-spacing: 0.01em;
 
       @media (max-width: $bp-sm) {
-        font-size: $fs-sm;
+        font-size: $fs-base; // 16px — readable, not too small
       }
     }
 

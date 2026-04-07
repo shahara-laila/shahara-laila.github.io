@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Teaching
-subtitle: University teaching is my vocation — connecting theory to practice and mentoring the next generation of engineers.
+subtitle: Pursuing Faculty Positions — connecting theory to practice and mentoring the next generation of engineers.
 permalink: /teaching/
 ---
 
@@ -13,7 +13,7 @@ permalink: /teaching/
     From March 2025 to January 2026, I served as a <strong>Lecturer</strong> in the Department of Computer Science
     and Engineering at <strong>Varendra University, Rajshahi</strong>, teaching courses spanning
     computer graphics theory, graphics programming labs, and foundational data structures.
-    I am actively seeking opportunities to return to university teaching as a full-time faculty member,
+    I am actively seeking Faculty Positions to return as a full-time faculty member,
     where I can combine research and instruction to build lasting academic impact.
   </p>
   <blockquote class="teaching-philosophy">
