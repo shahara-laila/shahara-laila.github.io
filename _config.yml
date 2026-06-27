@@ -8,11 +8,11 @@ author:
   name: "Shahara Laila"
   email: "shaharalaila123@gmail.com"
   github: "shahara-laila" # GitHub username
-  scholar: "linkedin.com" # Google Scholar user ID (from scholar.google.com URL)
-  linkedin: "linkedin.com" # LinkedIn handle (linkedin.com/in/YOUR-HANDLE)
-  orcid: "linkedin.com" # ORCID iD e.g. 0000-0001-2345-6789
-  twitter: "linkedin.com"
-  researchgate: "linkedin.com" # ResearchGate profile name
+  scholar: "mKWUx9AAAAAJ" # Google Scholar user ID (from scholar.google.com URL)
+  linkedin: "shahara-laila-tazin" # LinkedIn handle (linkedin.com/in/YOUR-HANDLE)
+  orcid: "0009-0001-7595-0831" # ORCID iD e.g. 0000-0001-2345-6789
+  twitter: "" # not displayed; leave empty
+  researchgate: "Shahara-Laila" # ResearchGate profile name
 
 profile:
   publications: "2"

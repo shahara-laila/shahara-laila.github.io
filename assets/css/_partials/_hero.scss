@@ -49,18 +49,23 @@
   }
 
   // --- Status eyebrow with pulse dot ---
+  // The dot is an inline part of the (centered) text so that when the label
+  // wraps to two lines it stays attached to the first word instead of floating
+  // off to the left as a vertically-centered flex sibling.
   .hero-status {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-2;
+    display: block;
     margin-bottom: $space-5;
 
     .status-dot {
+      display: inline-block;
       width: 6px;
       height: 6px;
       border-radius: 50%;
       background: $accent;
-      flex-shrink: 0;
+      vertical-align: middle;
+      margin-right: $space-2;
+      position: relative;
+      top: -1px;
     }
   }
 

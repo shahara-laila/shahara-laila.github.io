@@ -1,23 +1,21 @@
+# Note: the rendered social links are built from _config.yml (author.*), not this
+# file. These are kept in sync for completeness/future use.
 - name: GitHub
-  url: ""
+  url: "https://github.com/shahara-laila"
   icon: github
 
 - name: Google Scholar
-  url: ""
+  url: "https://scholar.google.com/citations?user=mKWUx9AAAAAJ"
   icon: scholar
 
 - name: LinkedIn
-  url: ""
+  url: "https://www.linkedin.com/in/shahara-laila-tazin/"
   icon: linkedin
 
 - name: ORCID
-  url: ""
+  url: "https://orcid.org/0009-0001-7595-0831"
   icon: orcid
 
 - name: ResearchGate
-  url: ""
+  url: "https://www.researchgate.net/profile/Shahara-Laila"
   icon: researchgate
-
-- name: Twitter / X
-  url: ""
-  icon: twitter

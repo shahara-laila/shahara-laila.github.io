@@ -3,8 +3,8 @@ layout: page
 title: Curriculum Vitae
 subtitle: Download or view my full academic CV.
 permalink: /cv/
-cv_drive_url: "https://drive.google.com/file/d/YOUR_GOOGLE_DRIVE_FILE_ID/preview"
-cv_download_url: "https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID"
+cv_drive_url: "https://drive.google.com/file/d/1FSgZvAtkQHYf3x-KgL_JybUzForP0jfN/preview"
+cv_download_url: "https://drive.google.com/uc?export=download&id=1FSgZvAtkQHYf3x-KgL_JybUzForP0jfN"
 ---
 
 <div class="cv-page">

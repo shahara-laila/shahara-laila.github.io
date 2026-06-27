@@ -29,7 +29,7 @@ permalink: /contact/
     </div>
   </a>
 
-  <a href="https://linkedin.com/in/YOUR_LINKEDIN_HANDLE"
+  <a href="https://www.linkedin.com/in/shahara-laila-tazin/"
      target="_blank" rel="noopener noreferrer"
      style="display: flex; flex-direction: column; gap: 0.75rem; padding: 1.75rem; background: #fff; border: 1px solid #E5E1D6; border-radius: 1rem; text-decoration: none; transition: all 0.2s ease; box-shadow: 0 1px 4px rgba(34,32,28,0.06);"
      onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 24px rgba(34,32,28,0.12)'; this.style.borderColor='#7A2B2B';"
