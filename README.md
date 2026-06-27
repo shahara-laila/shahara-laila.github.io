@@ -2,7 +2,7 @@
 
 I built this portfolio because I needed a single, honest place that represents who I am academically — not a résumé, not a LinkedIn profile, but a space where my research, teaching, and goals live together in one view.
 
-I am a Computer Vision Researcher and M.Sc. student at MIST, Dhaka, working on YOLO-based oral carcinoma detection. I served as a Lecturer in CSE at Varendra University, Rajshahi, and I am actively pursuing Faculty Positions where I can combine research and teaching in the long term.
+I am a Computer Science Researcher and M.Sc. student at MIST, Dhaka, working on YOLO-based oral carcinoma detection. I served as a Lecturer in CSE at Varendra University, Rajshahi, and I am actively pursuing Faculty Positions where I can combine research and teaching in the long term.
 
 The academic job market asks you to present yourself clearly. I wanted a place that does that on my own terms — showing my publications, research direction, teaching experience, and what I am looking for, without the noise of a generic profile. Building it myself also meant I understood every part of it.
 

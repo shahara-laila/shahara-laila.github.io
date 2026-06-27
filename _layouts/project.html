@@ -2,8 +2,7 @@
 layout: default
 ---
 
-<div class="nav-offset"></div>
-
+{% comment %} .page-header already offsets the fixed nav via its top padding. {% endcomment %}
 <div class="page-header">
   <div class="container">
     <div class="project-header-tags">
@@ -22,7 +21,7 @@ layout: default
       </a>
       {% endif %}
       {% if page.demo %}
-      <a href="{{ page.demo }}" class="btn btn-outline" style="color:white; border-color:rgba(255,255,255,0.35);" target="_blank" rel="noopener noreferrer">
+      <a href="{{ page.demo }}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
         Live Demo →
       </a>
       {% endif %}

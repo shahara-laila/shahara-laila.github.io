@@ -23,11 +23,21 @@
 }
 
 // Research interest cards
+// Explicit column counts so the 6 cards balance as 3×2 / 2×3 instead of the
+// lopsided 4 + 2 that auto-fill produced at desktop width.
 .interest-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: $space-5;
   margin-top: $space-8;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .interest-card {
@@ -154,7 +164,7 @@
 
     .dark-mode & {
       background: rgba($color-accent, 0.2);
-      color: #a78bfa;
+      color: $accent;
     }
   }
 
@@ -245,12 +255,7 @@
   transition: all $transition-base;
   display: flex;
   flex-direction: column;
-  border-top: 3px solid transparent;
-
-  &:nth-child(4n+1) { border-top-color: $color-cta; }
-  &:nth-child(4n+2) { border-top-color: $color-accent; }
-  &:nth-child(4n+3) { border-top-color: #38bdf8; }
-  &:nth-child(4n+4) { border-top-color: #a78bfa; }
+  border-top: 2px solid $accent;
 
   .dark-mode & {
     background: $color-dark-surface;

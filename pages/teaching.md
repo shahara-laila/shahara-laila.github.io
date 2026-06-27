@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Teaching
-subtitle: Pursuing Faculty Positions — connecting theory to practice and mentoring the next generation of engineers.
+subtitle: "Pursuing Faculty Positions: connecting theory to practice and mentoring the next generation of engineers."
 permalink: /teaching/
 ---
 
@@ -9,7 +9,7 @@ permalink: /teaching/
 
 <div class="teaching-intro">
   <p>
-    Teaching is central to who I am as an academic — not a stepping stone, but a calling.
+    Teaching is central to who I am as an academic: not a stepping stone, but a calling.
     From March 2025 to January 2026, I served as a <strong>Lecturer</strong> in the Department of Computer Science
     and Engineering at <strong>Varendra University, Rajshahi</strong>, teaching courses spanning
     computer graphics theory, graphics programming labs, and foundational data structures.

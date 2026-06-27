@@ -1,5 +1,5 @@
 // =============================================================================
-// BASE STYLES
+// BASE STYLES — "The Manuscript"
 // =============================================================================
 
 *,
@@ -19,31 +19,24 @@ html {
 }
 
 body {
-  font-family: $font-sans;
+  font-family: $font-body;
   font-size: $fs-base;
   line-height: $lh-relaxed;
-  color: $color-text;
-  background-color: $color-bg;
+  color: $ink;
+  background-color: $paper;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "onum";
 }
 
-// Dark mode body
-body.dark-mode {
-  color: $color-dark-text;
-  background-color: $color-dark-bg;
-}
-
-// Headings
+// --- Headings: Fraunces, ink ---
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-serif;
-  font-weight: $fw-bold;
+  font-family: $font-display;
+  font-weight: $fw-semibold;
   line-height: $lh-tight;
-  color: $color-primary;
-
-  .dark-mode & {
-    color: $color-dark-text;
-  }
+  color: $ink;
+  letter-spacing: -0.01em;
+  font-optical-sizing: auto;
 }
 
 h1 { font-size: $fs-3xl; }
@@ -53,31 +46,45 @@ h4 { font-size: $fs-lg; }
 h5 { font-size: $fs-md; }
 h6 { font-size: $fs-base; }
 
-// Links
+// Headings carry the page on a minimal scholarly layout, so they must scale
+// down on small screens rather than keep their desktop size.
+@media (max-width: $bp-md) {
+  h1 { font-size: $fs-2xl; }
+  h2 { font-size: $fs-xl; }
+  h3 { font-size: $fs-lg; }
+}
+
+@media (max-width: $bp-sm) {
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.28rem; }
+  h4 { font-size: 1.12rem; }
+}
+
+// --- Links ---
 a {
-  color: $color-accent;
+  color: $accent;
   text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
   transition: color $transition-fast;
 
   &:hover {
-    color: $color-cta;
+    color: $accent-dark;
+    text-decoration: underline;
   }
 }
 
-// Paragraphs
 p {
-  margin-bottom: $space-4;
+  margin-bottom: $space-5;
   line-height: $lh-relaxed;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+  &:last-child { margin-bottom: 0; }
 }
 
-// Lists
 ul, ol {
   padding-left: $space-6;
-  margin-bottom: $space-4;
+  margin-bottom: $space-5;
 
   li {
     margin-bottom: $space-2;
@@ -85,34 +92,31 @@ ul, ol {
   }
 }
 
-// Images
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-// Code
+em, i { font-style: italic; }
+strong, b { font-weight: $fw-semibold; }
+
+// --- Code ---
 code {
   font-family: $font-mono;
-  font-size: 0.875em;
-  background: $color-highlight;
-  color: $color-primary;
-  padding: 0.15em 0.4em;
+  font-size: 0.85em;
+  background: $block;
+  color: $accent-dark;
+  padding: 0.12em 0.38em;
   border-radius: $radius-sm;
-
-  .dark-mode & {
-    background: $color-dark-highlight;
-    color: #c4b5fd;
-  }
 }
 
 pre {
   font-family: $font-mono;
   font-size: $fs-sm;
-  background: #1e1b4b;
-  color: #e8e6f0;
-  padding: $space-6;
+  background: #2A2722;
+  color: #EDE9E1;
+  padding: $space-5 $space-6;
   border-radius: $radius-md;
   overflow-x: auto;
   margin-bottom: $space-6;
@@ -126,280 +130,316 @@ pre {
   }
 }
 
-// Blockquotes
 blockquote {
-  border-left: 4px solid $color-cta;
-  padding: $space-4 $space-6;
+  border-left: 2px solid $accent;
+  padding: $space-1 0 $space-1 $space-5;
   margin: $space-6 0;
-  background: $color-highlight;
-  border-radius: 0 $radius-md $radius-md 0;
   font-style: italic;
-  color: $color-muted;
+  color: $ink-soft;
+  font-size: $fs-md;
+  line-height: $lh-snug;
 
-  .dark-mode & {
-    background: $color-dark-highlight;
-    color: $color-dark-muted;
-  }
-
-  p:last-child {
-    margin-bottom: 0;
-  }
+  p:last-child { margin-bottom: 0; }
 }
 
-// Horizontal rule
 hr {
   border: none;
-  border-top: 1px solid $color-border;
+  border-top: 1px solid $hairline;
   margin: $space-12 0;
-
-  .dark-mode & {
-    border-color: $color-dark-border;
-  }
 }
 
-// Tables
+// --- Tables ---
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: $space-6;
-  font-size: $fs-sm;
+  margin: $space-6 0;
+  font-size: 0.96rem;
+  line-height: $lh-snug;
 
   th, td {
     padding: $space-3 $space-4;
     text-align: left;
-    border-bottom: 1px solid $color-border;
+    border-bottom: 1px solid $hairline;
+  }
 
-    .dark-mode & {
-      border-color: $color-dark-border;
-    }
+  thead th {
+    border-bottom: 1.5px solid $hairline-strong;
   }
 
   th {
     font-weight: $fw-semibold;
-    background: $color-highlight;
-    color: $color-primary;
-
-    .dark-mode & {
-      background: $color-dark-highlight;
-      color: $color-dark-text;
-    }
+    color: $ink;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.03em;
   }
 
-  tr:hover td {
-    background: rgba($color-highlight, 0.5);
+  td { color: $ink-soft; }
+
+  tbody tr:last-child td { border-bottom: none; }
+}
+
+// Wide markdown tables scroll horizontally on small screens instead of
+// squeezing every column into the viewport.
+@media (max-width: $bp-sm) {
+  .post-body table,
+  .page-content table,
+  .project-content table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
   }
 }
 
-// Focus styles (accessibility)
+// --- Accessibility ---
 :focus-visible {
-  outline: 2px solid $color-cta;
+  outline: 2px solid $accent;
   outline-offset: 2px;
 }
 
-// Selection
 ::selection {
-  background: rgba($color-cta, 0.2);
-  color: $color-text;
+  background: $accent-tint;
+  color: $accent-dark;
 }
 
-// Container
+// --- Layout containers ---
 .container {
   max-width: $max-width;
   margin: 0 auto;
   padding: 0 $space-6;
 
-  @media (max-width: $bp-md) {
-    padding: 0 $space-4;
-  }
+  @media (max-width: $bp-md) { padding: 0 $space-5; }
+  @media (max-width: $bp-sm) { padding: 0 $space-4; }
 }
 
-// Content width (reading)
-.content-width {
-  max-width: $content-width;
-  margin: 0 auto;
-}
+.content-width { max-width: $content-width; margin: 0 auto; }
+.narrow-width  { max-width: $narrow-width;  margin: 0 auto; }
 
-// Section spacing
+// --- Section rhythm ---
 .section {
   padding: $space-20 0;
 
-  @media (max-width: $bp-md) {
-    padding: $space-12 0;
+  @media (max-width: $bp-md) { padding: $space-12 0; }
+}
+
+// A section directly after a header band shouldn't double its top padding.
+.page-header + .section,
+.pub-header + .section {
+  padding-top: $space-12;
+
+  @media (max-width: $bp-md) { padding-top: $space-10; }
+}
+
+// Alternating tone for rhythm without color noise
+.section--tint { background: $surface; border-block: 1px solid $hairline; }
+
+// --- Markdown prose rhythm (generic pages: about, research, teaching, …) ---
+// Scoped to top-level children so nested card/grid content is untouched.
+.page-content {
+  > h2 {
+    margin-top: $space-16;
+    margin-bottom: $space-5;
+    padding-bottom: $space-3;
+    border-bottom: 1px solid $hairline;
+
+    &:first-child { margin-top: 0; }
+
+    @media (max-width: $bp-md) { margin-top: $space-12; }
+  }
+
+  > h3 {
+    margin-top: $space-10;
+    margin-bottom: $space-4;
+  }
+
+  > p { margin-bottom: $space-5; }
+  > ul, > ol { margin-bottom: $space-6; }
+
+  > hr {
+    margin: $space-12 0;
   }
 }
 
-// Section headings
-.section-title {
-  font-size: $fs-2xl;
-  color: $color-primary;
-  margin-bottom: $space-3;
-  position: relative;
+// On small screens the big display sizes on component titles read oversized,
+// so bring them down to a professional mobile scale.
+@media (max-width: $bp-sm) {
+  .section-title,
+  .teaching-section-title,
+  .about-hero-name,
+  .page-header-title { font-size: 1.55rem; }
 
-  .dark-mode & {
-    color: $color-dark-text;
-  }
+  .timeline-title,
+  .rp-title,
+  .course-name,
+  .project-title,
+  .blog-card-title,
+  .seminar-title { font-size: 1.22rem; }
+}
+
+// --- The structural device: tracked small-caps eyebrow ---
+.eyebrow {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: $fs-xs;
+  font-weight: $fw-semibold;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: $accent;
+  margin-bottom: $space-4;
+}
+
+// --- Section headings ---
+.section-title {
+  font-family: $font-display;
+  font-size: $fs-2xl;
+  font-weight: $fw-semibold;
+  color: $ink;
+  margin-bottom: $space-3;
 
   &::after {
     content: '';
     display: block;
-    width: 48px;
-    height: 3px;
-    background: $color-cta;
-    margin-top: $space-3;
-    border-radius: $radius-full;
+    width: 40px;
+    height: 2px;
+    background: $accent;
+    margin-top: $space-4;
   }
 }
 
 .section-subtitle {
-  color: $color-muted;
+  color: $muted;
   font-size: $fs-md;
+  font-style: italic;
   margin-bottom: $space-10;
-  max-width: 600px;
-
-  .dark-mode & {
-    color: $color-dark-muted;
-  }
+  max-width: 620px;
 }
 
-// Buttons
+// --- Buttons (refined, rectangular) ---
 .btn {
   display: inline-flex;
   align-items: center;
   gap: $space-2;
-  padding: $space-3 $space-6;
-  border-radius: $radius-full;
+  padding: $space-3 $space-5;
+  border-radius: $radius-md;
+  font-family: $font-body;
   font-weight: $fw-semibold;
-  font-size: $fs-base;
+  font-size: $fs-sm;
+  letter-spacing: 0.01em;
   transition: all $transition-base;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   text-decoration: none;
-  font-family: $font-sans;
+
+  &:hover { text-decoration: none; }
 
   &-primary {
-    background: $color-cta;
-    color: white;
+    background: $accent;
+    color: $paper;
+    border-color: $accent;
 
     &:hover {
-      background: $color-cta-dark;
-      color: white;
-      transform: translateY(-1px);
-      box-shadow: $shadow-md;
+      background: $accent-dark;
+      border-color: $accent-dark;
+      color: $paper;
     }
   }
 
   &-outline {
     background: transparent;
-    color: $color-primary;
-    border: 2px solid $color-primary;
-
-    .dark-mode & {
-      color: $color-dark-text;
-      border-color: $color-dark-border;
-    }
+    color: $ink;
+    border-color: $hairline-strong;
 
     &:hover {
-      background: $color-primary;
-      color: white;
-      transform: translateY(-1px);
+      border-color: $accent;
+      color: $accent;
+      background: $accent-tint;
     }
   }
 
   &-ghost {
     background: transparent;
-    color: $color-accent;
+    color: $accent;
+    padding-left: 0;
+    padding-right: 0;
 
-    &:hover {
-      background: $color-highlight;
-      color: $color-primary;
-    }
+    &:hover { color: $accent-dark; }
   }
 
-  svg {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-  }
+  svg { width: 17px; height: 17px; flex-shrink: 0; }
 }
 
-// Tags/Pills
+.btn--sm {
+  padding: $space-2 $space-4 !important;
+  font-size: $fs-xs !important;
+}
+
+// --- Tags / pills (understated) ---
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: $space-1 $space-3;
-  background: rgba($color-cta, 0.1);
-  color: $color-cta-dark;
+  padding: 3px 10px;
+  background: transparent;
+  color: $ink-soft;
+  border: 1px solid $hairline-strong;
   border-radius: $radius-full;
+  font-family: $font-body;
   font-size: $fs-xs;
-  font-weight: $fw-semibold;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: background $transition-fast;
-
-  .dark-mode & {
-    background: rgba($color-cta, 0.2);
-    color: #5eead4;
-  }
+  font-weight: $fw-medium;
+  letter-spacing: 0.02em;
+  transition: all $transition-fast;
 
   &:hover {
-    background: rgba($color-cta, 0.2);
-    color: $color-cta-dark;
+    border-color: $accent;
+    color: $accent;
     text-decoration: none;
   }
 }
 
-// Badges
 .badge {
   display: inline-block;
-  padding: $space-1 $space-2;
+  padding: 2px 8px;
   border-radius: $radius-sm;
   font-size: $fs-xs;
   font-weight: $fw-semibold;
-  background: $color-highlight;
-  color: $color-accent;
-
-  .dark-mode & {
-    background: $color-dark-highlight;
-    color: #a78bfa;
-  }
+  background: $accent-tint;
+  color: $accent-dark;
 }
 
-// Content prose areas — consistent list reset so component CSS wins cleanly
+// Prose list resets where components draw their own bullets
 .cert-detail-content,
 .project-content,
 .cert-detail-content ul,
 .project-content ul {
-  // Ensure base list-style doesn't override our custom dot bullets
   list-style: none;
   padding-left: 0;
 }
 
-// Smooth theme transition (only during toggle, not on page load)
-html.theme-transitioning,
-html.theme-transitioning *,
-html.theme-transitioning *::before,
-html.theme-transitioning *::after {
-  transition:
-    background-color 300ms ease,
-    border-color 300ms ease,
-    color 200ms ease,
-    box-shadow 300ms ease !important;
+// --- Scroll reveal (progressive enhancement; content visible by default) ---
+.reveal-init {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+
+  &.is-revealed { opacity: 1; transform: none; }
 }
 
-// Skip to main content (accessibility)
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init { opacity: 1; transform: none; transition: none; }
+}
+
+// --- Skip link ---
 .skip-to-content {
   position: absolute;
   top: -100%;
   left: $space-4;
-  background: $color-cta;
-  color: white;
-  padding: $space-3 $space-6;
+  background: $accent;
+  color: $paper;
+  padding: $space-3 $space-5;
   border-radius: $radius-md;
   font-weight: $fw-semibold;
   z-index: 9999;
   transition: top $transition-fast;
 
-  &:focus {
-    top: $space-4;
-  }
+  &:focus { top: $space-4; }
 }

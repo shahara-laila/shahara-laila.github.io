@@ -48,7 +48,7 @@ permalink: /certifications/
 {% if site.data.seminars.size > 0 %}
 <div class="seminars-section">
   <h2 class="section-title">Attended Seminars &amp; Conferences</h2>
-  <p class="section-subtitle">Academic events attended as participant — conferences, workshops, and research gatherings.</p>
+  <p class="section-subtitle">Academic events attended as participant: conferences, workshops, and research gatherings.</p>
 
   <div class="seminar-list">
     {% for seminar in site.data.seminars %}

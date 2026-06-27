@@ -28,8 +28,8 @@ pagination:
   </div>
 
   {% if site.posts.size == 0 %}
-  <p style="color: #6B7280; font-style: italic; text-align: center; padding: 3rem 0;">
-    No posts yet — check back soon!
+  <p style="color: #6E6A62; font-style: italic; text-align: center; padding: 3rem 0;">
+    No posts yet. Check back soon.
   </p>
   {% endif %}
 

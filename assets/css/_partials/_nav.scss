@@ -1,5 +1,5 @@
 // =============================================================================
-// NAVIGATION
+// NAVIGATION — solid paper bar (the hero is light)
 // =============================================================================
 
 .site-nav {
@@ -9,44 +9,15 @@
   right: 0;
   z-index: 1000;
   height: $nav-height;
-  transition: background $transition-base, box-shadow $transition-base;
+  background: $paper;
+  border-bottom: 1px solid transparent;
+  // NOTE: no backdrop-filter here — it makes .site-nav a containing block for
+  // its position:fixed mobile menu child, collapsing the menu to nav height.
+  transition: border-color $transition-base, box-shadow $transition-base;
 
-  // Default: transparent over dark hero — white text
-  .nav-logo { color: rgba(255, 255, 255, 0.92); }
-  .nav-links li a { color: rgba(255, 255, 255, 0.72); }
-  .mobile-toggle span { background: rgba(255,255,255,0.8); }
-
-  // Scrolled: solid background — theme-appropriate text
-  // NOTE: backdrop-filter intentionally removed — it creates a new containing block
-  // for position:fixed children in WebKit/Blink, breaking the mobile menu overlay.
   &.scrolled {
-    background: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 4px 16px rgba(76,29,149,0.06);
-
-    .dark-mode & {
-      background: rgba(15, 14, 23, 0.97);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .nav-logo {
-      color: $color-primary;
-      .dark-mode & { color: #a78bfa; }
-    }
-
-    .nav-links li a {
-      color: $color-text;
-      .dark-mode & { color: $color-dark-text; }
-
-      &:hover, &.active {
-        color: $color-cta;
-        background: rgba($color-cta, 0.08);
-      }
-    }
-
-    .mobile-toggle span {
-      background: $color-text;
-      .dark-mode & { background: $color-dark-text; }
-    }
+    border-bottom-color: $hairline;
+    box-shadow: 0 1px 0 rgba(34, 32, 28, 0.02);
   }
 
   .nav-container {
@@ -58,17 +29,21 @@
     margin: 0 auto;
     padding: 0 $space-6;
 
-    @media (max-width: $bp-md) { padding: 0 $space-4; }
+    @media (max-width: $bp-md) { padding: 0 $space-5; }
+    @media (max-width: $bp-sm) { padding: 0 $space-4; }
   }
 
   .nav-logo {
-    font-family: $font-serif;
+    font-family: $font-display;
     font-size: $fs-lg;
-    font-weight: $fw-bold;
+    font-weight: $fw-semibold;
+    color: $ink;
     text-decoration: none;
+    letter-spacing: -0.01em;
     transition: color $transition-fast;
-    span { color: $color-cta; }
-    &:hover { opacity: 0.8; }
+
+    span { color: $accent; }
+    &:hover { color: $accent; text-decoration: none; }
   }
 
   .nav-links {
@@ -81,6 +56,7 @@
 
     @media (max-width: $bp-md) {
       display: none;
+
       &.open {
         display: flex;
         flex-direction: column;
@@ -90,34 +66,40 @@
         right: 0;
         bottom: 0;
         z-index: 1001;
-        background: $color-surface;
-        padding: $space-8 $space-6;
-        gap: $space-2;
-        align-items: flex-start;
+        background: $paper;
+        padding: $space-6 $space-5;
+        gap: 0;
+        align-items: stretch;
         overflow-y: auto;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-        .dark-mode & { background: $color-dark-surface; }
       }
     }
 
     li a {
       display: block;
       padding: $space-2 $space-3;
-      border-radius: $radius-md;
+      border-radius: $radius-sm;
+      font-family: $font-body;
       font-weight: $fw-medium;
       font-size: $fs-sm;
-      transition: color $transition-fast, background $transition-fast;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      color: $ink-soft;
+      letter-spacing: 0.02em;
+      transition: color $transition-fast;
+
+      &:hover { color: $accent; text-decoration: none; }
+
+      &.active {
+        color: $accent;
+        font-weight: $fw-semibold;
+      }
 
       @media (max-width: $bp-md) {
         font-size: $fs-md;
-        padding: $space-4 $space-3;
+        font-family: $font-display;
+        padding: $space-4 $space-2;
         width: 100%;
-        border-bottom: 1px solid $color-border;
+        border-bottom: 1px solid $hairline;
         border-radius: 0;
-        color: $color-text !important;
-        .dark-mode & { color: $color-dark-text !important; border-color: $color-dark-border; }
+        color: $ink;
       }
     }
   }
@@ -130,10 +112,11 @@
 
   .mobile-toggle {
     display: none;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
     background: none;
     border: none;
@@ -145,19 +128,18 @@
     span {
       display: block;
       width: 22px;
-      height: 2px;
+      height: 1.5px;
+      background: $ink;
       border-radius: $radius-full;
-      transition: all $transition-base;
+      transition: transform $transition-base, opacity $transition-base;
     }
 
     &.open {
-      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
       span:nth-child(2) { opacity: 0; }
-      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     }
   }
 }
 
-.nav-offset {
-  padding-top: $nav-height;
-}
+.nav-offset { padding-top: $nav-height; }

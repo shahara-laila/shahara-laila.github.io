@@ -81,38 +81,30 @@
   }
 }
 
-// Page header (inner pages)
+// Page header (inner pages) — light paper band with a garnet baseline rule
 .page-header {
-  background: linear-gradient(160deg, #12103A 0%, #1E1050 45%, #2D1B6B 100%);
-  padding: calc(#{$nav-height} + #{$space-12}) 0 $space-12;
-  margin-bottom: $space-12;
-  position: relative;
-  overflow: hidden;
+  background: $paper;
+  padding: calc(#{$nav-height} + #{$space-12}) 0 $space-10;
+  margin-bottom: 0;
+  border-bottom: 1px solid $hairline;
 
-  // Subtle dot pattern same as hero
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 28px 28px;
-    pointer-events: none;
+  @media (max-width: $bp-md) {
+    padding: calc(#{$nav-height} + #{$space-8}) 0 $space-8;
   }
 
-  .container { position: relative; z-index: 1; }
-
   .page-header-title {
-    font-family: $font-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: #F0EEFF !important;
+    font-family: $font-display;
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    line-height: 1.1;
+    color: $ink;
     margin-bottom: $space-3;
-    // Override dark-mode h1 color
-    .dark-mode & { color: #F0EEFF !important; }
+    overflow-wrap: break-word;
   }
 
   .page-header-subtitle {
     font-size: $fs-md;
-    color: rgba(240, 238, 255, 0.6);
+    font-style: italic;
+    color: $muted;
     max-width: 600px;
   }
 }
@@ -519,7 +511,7 @@
   .home-bottom-link {
     font-size: $fs-sm;
     font-weight: $fw-semibold;
-    color: #5eead4;
+    color: lighten($accent, 42%);
     text-decoration: none;
 
     &:hover { color: white; }
@@ -1231,8 +1223,9 @@
   font-weight: $fw-semibold;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  background: rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.9);
+  background: $block;
+  color: $ink-soft;
+  border: 1px solid $hairline;
   padding: 3px 10px;
   border-radius: $radius-full;
 }
@@ -1244,8 +1237,8 @@
   border-radius: $radius-full;
 
   &--completed {
-    background: rgba($color-cta, 0.2);
-    color: #5eead4;
+    background: $accent-tint;
+    color: $accent-dark;
   }
 }
 
@@ -1406,47 +1399,45 @@
 
 // About page social bar
 .about-social {
+  // Equal-width links, centered, so an incomplete final row stays balanced
+  // rather than leaving a lopsided empty cell.
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: $space-3;
-  margin-top: $space-5;
-  padding-top: $space-5;
-  border-top: 1px solid $color-border;
-
-  .dark-mode & { border-color: $color-dark-border; }
+  margin-top: $space-6;
+  padding-top: $space-6;
+  border-top: 1px solid $hairline;
 }
 
 .about-social-link {
+  flex: 0 1 calc(33.333% - #{$space-3});
   display: inline-flex;
   align-items: center;
   gap: $space-2;
-  padding: $space-2 $space-4;
-  background: $color-highlight;
-  color: $color-text;
-  border-radius: $radius-full;
+  padding: $space-3 $space-4;
+
+  @media (max-width: $bp-sm) { flex-basis: calc(50% - #{$space-3}); }
+  background: $surface;
+  color: $ink;
+  border-radius: $radius-md;
   font-size: $fs-sm;
   font-weight: $fw-medium;
   text-decoration: none;
   transition: all $transition-fast;
-  border: 1px solid $color-border;
-
-  .dark-mode & {
-    background: $color-dark-highlight;
-    color: $color-dark-text;
-    border-color: $color-dark-border;
-  }
+  border: 1px solid $hairline;
 
   &:hover {
-    background: rgba($color-cta, 0.1);
-    color: $color-cta;
-    border-color: rgba($color-cta, 0.3);
+    border-color: $accent;
+    color: $accent;
     text-decoration: none;
   }
 
   svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     flex-shrink: 0;
+    color: $accent;
   }
 }
 

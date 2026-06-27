@@ -6,17 +6,10 @@
   'use strict';
 
   const nav = document.getElementById('site-nav');
-  const hasHero = !!document.querySelector('.hero');
 
-  // ---- Nav: transparent over hero → solid on scroll (or always solid on inner pages) ----
+  // ---- Nav: solid paper bar that gains a hairline + faint shadow once scrolled ----
   if (nav) {
-    const onScroll = () => {
-      if (hasHero) {
-        nav.classList.toggle('scrolled', window.scrollY > 60);
-      } else {
-        nav.classList.add('scrolled'); // always solid on non-hero pages
-      }
-    };
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll(); // run immediately on load
   }
@@ -49,29 +42,49 @@
     });
   }
 
-  // ---- Scroll reveal ----
+  // ---- Scroll reveal (progressive enhancement) ----
+  // Content is visible by default in CSS. We only opt into the hidden→reveal
+  // animation when JS runs AND the user hasn't asked to reduce motion. Using a
+  // class (not inline opacity) keeps it resilient: a load + timeout fallback
+  // guarantees every element is shown even if the observer never fires.
+  const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const revealElements = document.querySelectorAll(
     '.card, .pub-card, .project-card, .blog-card, .interest-card, .course-card, .timeline-item'
   );
-  if ('IntersectionObserver' in window && revealElements.length) {
+
+  if (revealElements.length && !prefersReducedMotion && 'IntersectionObserver' in window) {
+    const reveal = (el) => el.classList.add('is-revealed');
+
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
+            reveal(entry.target);
+            obs.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px -10% 0px' }
     );
+
     revealElements.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      el.classList.add('reveal-init');
       observer.observe(el);
     });
+
+    // Fallback 1: reveal anything in view once the page has fully loaded.
+    const revealInView = () => {
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) reveal(el);
+      });
+    };
+    window.addEventListener('load', revealInView);
+
+    // Fallback 2: hard safety net — never leave content hidden.
+    window.setTimeout(() => revealElements.forEach(reveal), 2500);
   }
 
 })();

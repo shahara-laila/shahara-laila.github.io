@@ -7,9 +7,9 @@ permalink: /research/
 
 ## Research Statement
 
-My long-term goal is an academic career as a university faculty member — contributing to the advancement of knowledge through research while educating the next generation of engineers and scientists. I see research and teaching as inseparable: good researchers make better teachers, and the questions students ask drive better research.
+My long-term goal is an academic career as a university faculty member, contributing to the advancement of knowledge through research while educating the next generation of engineers and scientists. I see research and teaching as inseparable: good researchers make better teachers, and the questions students ask drive better research.
 
-My current research focuses on applying deep learning — particularly object detection architectures — to medical image analysis. The central question driving my work is: *how can we build reliable, annotation-efficient AI tools that assist clinicians in detecting cancer at an early stage?*
+My current research focuses on applying deep learning, particularly object detection architectures, to medical image analysis. The central question driving my work is: *how can we build reliable, annotation-efficient AI tools that assist clinicians in detecting cancer at an early stage?*
 
 My B.Sc. thesis investigated **YOLO-based oral carcinoma detection using box annotations**, exploring how modern object detection pipelines can be adapted to identify cancerous lesions from clinical photographs with minimal labeled data. This work resulted in a publication at IEEE iCACCESS 2024 and a journal submission currently under review.
 
@@ -33,6 +33,12 @@ I am pursuing my M.Sc. at MIST, Dhaka, to deepen this research agenda and prepar
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
     {% elsif interest.icon_type == 'health' %}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+    {% elsif interest.icon_type == 'imageprocessing' %}
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg>
+    {% elsif interest.icon_type == 'software' %}
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+    {% elsif interest.icon_type == 'crypto' %}
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
     {% else %}
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
     {% endif %}
