@@ -97,6 +97,68 @@ I am pursuing my M.Sc. at MIST, Dhaka, to deepen this research agenda and prepar
   </div>
 </div>
 
+<div class="research-project-card featured">
+  <div class="rp-header">
+    <span class="rp-badge rp-badge--thesis">M.Sc. Research</span>
+    <span class="rp-status rp-status--inprogress">Ongoing</span>
+  </div>
+  <h3 class="rp-title">LLM-Generated Hashcat Rules with QLoRA &amp; Target-User Conditioning</h3>
+  <p class="rp-desc">
+    A cyber-security research project fine-tuning Qwen2.5-Instruct models (0.5B/3B/7B) with 4-bit QLoRA to
+    automatically generate Hashcat password-mangling rules, conditioned on target-user attributes. Built on a
+    reproducible, leakage-safe benchmark with a frozen Hit@k metric. The LLM's rules combined with best64
+    significantly outperform best64 alone, exploring a region of rule-space the hand-tuned baselines miss.
+  </p>
+  <div class="rp-meta">
+    <span class="tag">Cyber Security</span>
+    <span class="tag">LLM</span>
+    <span class="tag">QLoRA</span>
+    <span class="tag">Password Cracking</span>
+    <span class="tag">PyTorch</span>
+  </div>
+</div>
+
+<div class="research-project-card">
+  <div class="rp-header">
+    <span class="rp-badge rp-badge--project">Neural Networks</span>
+    <span class="rp-status rp-status--complete">Completed</span>
+  </div>
+  <h3 class="rp-title">Wheat Plant Disease Detection &amp; Treatment Recommendation with CNN</h3>
+  <p class="rp-desc">
+    A web-based system using a Convolutional Neural Network to identify wheat rust diseases (yellow rust,
+    brown rust) from leaf images and recommend treatments. The replicated model reached 98% classification
+    accuracy versus the reference model's reported 96%, with cross-dataset validation and a farmer-facing
+    web interface.
+  </p>
+  <div class="rp-meta">
+    <span class="tag">CNN</span>
+    <span class="tag">Deep Learning</span>
+    <span class="tag">Computer Vision</span>
+    <span class="tag">TensorFlow</span>
+  </div>
+</div>
+
+<div class="research-project-card featured">
+  <div class="rp-header">
+    <span class="rp-badge rp-badge--thesis">Literature Review</span>
+    <span class="rp-status rp-status--inprogress">Under Review</span>
+  </div>
+  <h3 class="rp-title">AI Across the Software Development Life Cycle: A PRISMA-Based Review</h3>
+  <p class="rp-desc">
+    A PRISMA 2020 systematic literature review mapping how AI techniques are applied across the software
+    development life cycle. Screened 1,124 records down to 50 peer-reviewed studies (2022–2026) across five
+    digital libraries, surfacing lifecycle imbalances, method convergence on foundation models, and gaps in
+    evaluation practice. Manuscript submitted to <em>Automated Software Engineering</em> (Springer).
+  </p>
+  <div class="rp-meta">
+    <span class="tag">Software Engineering</span>
+    <span class="tag">Systematic Review</span>
+    <span class="tag">PRISMA</span>
+    <span class="tag">AI</span>
+    <span class="tag">LLM</span>
+  </div>
+</div>
+
 </div>
 
 ---
