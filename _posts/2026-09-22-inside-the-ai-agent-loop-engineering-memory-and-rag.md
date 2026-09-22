@@ -35,23 +35,17 @@ An agent follows a more dynamic process:
 
 The important difference is that the agent can continue working after its first action.
 
-For example, imagine asking:
+For example, imagine asking the agent to *"find research papers about AI in software engineering and identify research gaps."* It might:
 
-> **"Find research papers about AI in software engineering and identify research gaps."**
-
-The agent might:
-
-<ol class="step-list">
-  <li class="step"><span class="step-num">1</span><div class="step-body"><p>Understand the goal.</p></div></li>
-  <li class="step"><span class="step-num">2</span><div class="step-body"><p>Create a plan.</p></div></li>
-  <li class="step"><span class="step-num">3</span><div class="step-body"><p>Search for papers.</p></div></li>
-  <li class="step"><span class="step-num">4</span><div class="step-body"><p>Retrieve relevant documents.</p></div></li>
-  <li class="step"><span class="step-num">5</span><div class="step-body"><p>Analyze the papers.</p></div></li>
-  <li class="step"><span class="step-num">6</span><div class="step-body"><p>Compare their results.</p></div></li>
-  <li class="step"><span class="step-num">7</span><div class="step-body"><p>Determine whether enough evidence exists.</p></div></li>
-  <li class="step"><span class="step-num">8</span><div class="step-body"><p>Search again if information is missing.</p></div></li>
-  <li class="step"><span class="step-num">9</span><div class="step-body"><p>Generate the final report.</p></div></li>
-</ol>
+1. Understand the goal.
+2. Create a plan.
+3. Search for papers.
+4. Retrieve relevant documents.
+5. Analyze the papers.
+6. Compare their results.
+7. Determine whether enough evidence exists.
+8. Search again if information is missing.
+9. Generate the final report.
 
 This repeated process is the agent loop.
 
@@ -80,11 +74,7 @@ Therefore, developers need to carefully design how an agent starts, continues, a
 
 An agent needs clear conditions that tell it when to stop.
 
-One important mechanism is a **completion criterion**.
-
-For example:
-
-> Stop when sufficient evidence has been collected and the requested report has been generated.
+One important mechanism is a **completion criterion**: for example, stop when sufficient evidence has been collected and the requested report has been generated.
 
 Another mechanism is a **Human-in-the-Loop trigger**.
 
@@ -116,17 +106,7 @@ Memory allows the system to retain useful information rather than treating every
 
 Short-term memory contains information relevant to the current interaction.
 
-For example:
-
-**User:**
-
-> **"My research topic is AI in software engineering."**
-
-Later the user asks:
-
-> **"What research gaps should I investigate?"**
-
-The system can use the earlier information to understand what the second question refers to.
+For example, a user says *"My research topic is AI in software engineering."* Later, they ask *"What research gaps should I investigate?"* The system uses the earlier message to understand what the second question refers to.
 
 The information is useful because it provides context for the current interaction.
 
@@ -168,11 +148,7 @@ Memory is primarily about retaining useful information about:
 
 RAG is primarily about retrieving relevant external knowledge.
 
-In simple terms:
-
-> **Memory = Remember**
-
-> **RAG = Retrieve**
+In simple terms: **Memory = Remember**, and **RAG = Retrieve**.
 
 ## What Is RAG?
 
@@ -188,9 +164,7 @@ The process becomes:
 
 ![RAG process: query goes to a retrieval system that searches documents and returns relevant passages to the LLM](/assets/images/posts/inside-the-ai-agent-loop-engineering-memory-and-rag/image4.png)
 
-For example, suppose we ask:
-
-> **"Which papers used YOLOv8 for oral cancer detection?"**
+For example, suppose we ask *"which papers used YOLOv8 for oral cancer detection?"*
 
 The RAG system searches the document collection and retrieves relevant papers or passages.
 
@@ -200,9 +174,7 @@ Those retrieved materials are then provided to the LLM so that it can generate a
 
 Imagine building an AI research assistant.
 
-The user asks:
-
-> **"Analyze recent research on AI across the Software Development Life Cycle."**
+The user asks the agent to *"analyze recent research on AI across the Software Development Life Cycle."*
 
 The agent might perform:
 

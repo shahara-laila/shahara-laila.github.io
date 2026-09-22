@@ -59,9 +59,7 @@ LLMOps can involve:
 * Security
 * Reliability
 
-Therefore:
-
-> **Building an AI Agent is not just writing a prompt. It is a complete engineering process.**
+Therefore, building an AI Agent is not just writing a prompt. It is a complete engineering process.
 
 ## Why Evaluation Is Important
 
@@ -133,9 +131,7 @@ A tracing system can record:
 * Token usage
 * Intermediate outputs
 
-A useful analogy from the article is:
-
-> **Tracing is the flight recorder of an AI Agent.**
+A useful analogy: tracing is the flight recorder of an AI Agent.
 
 ## Monitoring the Agent
 
@@ -168,7 +164,7 @@ The system is not simply built once and forgotten.
 
 Instead:
 
-> **Build → Test → Deploy → Observe → Evaluate → Improve → Deploy Again**
+**Build → Test → Deploy → Observe → Evaluate → Improve → Deploy Again**
 
 This is one of the most important ideas in production AI systems.
 
@@ -188,55 +184,20 @@ It is a collection of interconnected components working together.
 
 Let's put everything together with a practical example.
 
-Suppose the user asks:
+Suppose the user asks the agent to *"analyze recent research on AI across the Software Development Life Cycle and identify research gaps."* It can perform the following process.
 
-> **"Analyze recent research on AI across the Software Development Life Cycle and identify research gaps."**
+1. **Understand the goal**: the LLM identifies what the user is asking for.
+2. **Create a plan**: the agent creates a workflow: **Search → Retrieve → Read → Extract → Compare → Identify Gaps → Report**.
+3. **Search**: the agent uses a search tool to find relevant papers.
+4. **Retrieve**: RAG retrieves relevant papers and passages.
+5. **Extract**: the agent pulls out information such as research problem, AI technique, dataset, methodology, results, and limitations.
+6. **Analyze**: the agent compares the studies.
+7. **Check**: the agent asks whether it has enough evidence. If yes, it continues; if no, it searches again.
 
-The agent can perform the following process.
+   ![Decision point where the agent checks whether it has enough evidence or needs to search again](/assets/images/posts/llmops-how-to-build-evaluate-trace-and-improve-ai-agents/image5.png)
 
-<ol class="step-list">
-<li class="step"><span class="step-num">1</span><div class="step-body"><h4>Understand the Goal</h4><p>The LLM identifies what the user is asking for.</p></div></li>
-<li class="step"><span class="step-num">2</span><div class="step-body" markdown="1">
-<h4>Create a Plan</h4>
-The agent creates a workflow:
-
-**Search → Retrieve → Read → Extract → Compare → Identify Gaps → Report**
-</div></li>
-<li class="step"><span class="step-num">3</span><div class="step-body"><h4>Search</h4><p>The agent uses a search tool to find relevant papers.</p></div></li>
-<li class="step"><span class="step-num">4</span><div class="step-body"><h4>Retrieve</h4><p>RAG retrieves relevant papers and passages.</p></div></li>
-<li class="step"><span class="step-num">5</span><div class="step-body" markdown="1">
-<h4>Extract</h4>
-The agent extracts information such as:
-
-* Research problem
-* AI technique
-* Dataset
-* Methodology
-* Results
-* Limitations
-</div></li>
-<li class="step"><span class="step-num">6</span><div class="step-body"><h4>Analyze</h4><p>The agent compares the studies.</p></div></li>
-<li class="step"><span class="step-num">7</span><div class="step-body" markdown="1">
-<h4>Check</h4>
-The agent asks:
-
-> "Do I have enough evidence?"
-
-If **yes**, it continues. If **no**, it searches again.
-
-![Decision point where the agent checks whether it has enough evidence or needs to search again](/assets/images/posts/llmops-how-to-build-evaluate-trace-and-improve-ai-agents/image5.png)
-</div></li>
-<li class="step"><span class="step-num">8</span><div class="step-body" markdown="1">
-<h4>Generate</h4>
-The agent creates:
-
-* Literature summary
-* Comparison table
-* Research gaps
-* References
-</div></li>
-<li class="step"><span class="step-num">9</span><div class="step-body"><h4>Evaluate</h4><p>Finally, the system checks whether the generated results meet predefined criteria.</p></div></li>
-</ol>
+8. **Generate**: the agent creates a literature summary, comparison table, research gaps, and references.
+9. **Evaluate**: the system checks whether the generated results meet predefined criteria.
 
 ## The Complete Picture
 
