@@ -1,15 +1,3 @@
----
-layout: post
-title: "Inside the AI Agent: Loop Engineering, Memory, and RAG"
-date: 2026-09-22
-categories: [ai, agents]
-tags: [ai-agents, agent-loop, loop-engineering, memory, rag]
-math: false
-comments: true
-mermaid: true
-excerpt: "An agent doesn't just answer — it works through a task step by step. Three ideas make that possible: the agent loop, memory, and RAG. Here's how each one works, and how they fit together."
----
-
 **Inside the AI Agent: Loop Engineering, Memory, and RAG** 
 
 In the first part of this series, we learned that an AI Agent is more than an LLM. An agent combines an LLM with tools, memory, knowledge, planning, actions, feedback, and an agent harness.
