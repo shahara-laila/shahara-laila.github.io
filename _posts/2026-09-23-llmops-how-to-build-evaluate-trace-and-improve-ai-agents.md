@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LLMOps: How to Build, Evaluate, Trace, and Improve AI Agents"
-date: 2026-09-23
+date: 2026-09-22
 categories: [ai, agents]
 tags: [llmops, ai-agents, evaluation, tracing, monitoring, observability]
 math: false
