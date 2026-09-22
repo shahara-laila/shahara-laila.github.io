@@ -6,7 +6,7 @@ categories: [ai, agents]
 tags: [llmops, ai-agents, evaluation, tracing, monitoring, observability]
 math: false
 comments: true
-excerpt: "Building an agent is the easy part. Keeping it reliable in production takes evaluation, tracing, monitoring, and a continuous improvement loop — here's how LLMOps ties it all together."
+excerpt: "Building an agent is the easy part. Keeping it reliable in production takes evaluation, tracing, monitoring, and a continuous improvement loop. Here's how LLMOps ties it all together."
 ---
 
 In the first two parts of this series, we explored the foundations of AI Agents.
@@ -194,26 +194,18 @@ Suppose the user asks:
 
 The agent can perform the following process.
 
-### Step 1 — Understand the Goal
-
-The LLM identifies what the user is asking for.
-
-### Step 2 — Create a Plan
-
+<ol class="step-list">
+<li class="step"><span class="step-num">1</span><div class="step-body"><h4>Understand the Goal</h4><p>The LLM identifies what the user is asking for.</p></div></li>
+<li class="step"><span class="step-num">2</span><div class="step-body" markdown="1">
+<h4>Create a Plan</h4>
 The agent creates a workflow:
 
 **Search → Retrieve → Read → Extract → Compare → Identify Gaps → Report**
-
-### Step 3 — Search
-
-The agent uses a search tool to find relevant papers.
-
-### Step 4 — Retrieve
-
-RAG retrieves relevant papers and passages.
-
-### Step 5 — Extract
-
+</div></li>
+<li class="step"><span class="step-num">3</span><div class="step-body"><h4>Search</h4><p>The agent uses a search tool to find relevant papers.</p></div></li>
+<li class="step"><span class="step-num">4</span><div class="step-body"><h4>Retrieve</h4><p>RAG retrieves relevant papers and passages.</p></div></li>
+<li class="step"><span class="step-num">5</span><div class="step-body" markdown="1">
+<h4>Extract</h4>
 The agent extracts information such as:
 
 * Research problem
@@ -222,35 +214,29 @@ The agent extracts information such as:
 * Methodology
 * Results
 * Limitations
-
-### Step 6 — Analyze
-
-The agent compares the studies.
-
-### Step 7 — Check
-
+</div></li>
+<li class="step"><span class="step-num">6</span><div class="step-body"><h4>Analyze</h4><p>The agent compares the studies.</p></div></li>
+<li class="step"><span class="step-num">7</span><div class="step-body" markdown="1">
+<h4>Check</h4>
 The agent asks:
 
 > "Do I have enough evidence?"
 
-If **yes**, it continues.
-
-If **no**, it searches again.
+If **yes**, it continues. If **no**, it searches again.
 
 ![Decision point where the agent checks whether it has enough evidence or needs to search again](/assets/images/posts/llmops-how-to-build-evaluate-trace-and-improve-ai-agents/image5.png)
-
-### Step 8 — Generate
-
+</div></li>
+<li class="step"><span class="step-num">8</span><div class="step-body" markdown="1">
+<h4>Generate</h4>
 The agent creates:
 
 * Literature summary
 * Comparison table
 * Research gaps
 * References
-
-### Step 9 — Evaluate
-
-Finally, the system checks whether the generated results meet predefined criteria.
+</div></li>
+<li class="step"><span class="step-num">9</span><div class="step-body"><h4>Evaluate</h4><p>Finally, the system checks whether the generated results meet predefined criteria.</p></div></li>
+</ol>
 
 ## The Complete Picture
 

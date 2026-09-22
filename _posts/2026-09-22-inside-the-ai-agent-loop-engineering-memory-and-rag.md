@@ -6,7 +6,7 @@ categories: [ai, agents]
 tags: [ai-agents, agent-loop, loop-engineering, memory, rag]
 math: false
 comments: true
-excerpt: "An agent doesn't just answer — it works through a task step by step. Three ideas make that possible: the agent loop, memory, and RAG. Here's how each one works, and how they fit together."
+excerpt: "An agent doesn't just answer. It works through a task step by step. Three ideas make that possible: the agent loop, memory, and RAG. Here's how each one works, and how they fit together."
 ---
 
 In the first part of this series, we learned that an AI Agent is more than an LLM. An agent combines an LLM with tools, memory, knowledge, planning, actions, feedback, and an agent harness.
@@ -41,23 +41,17 @@ For example, imagine asking:
 
 The agent might:
 
-**Step 1: Understand the goal.**
-
-**Step 2: Create a plan.**
-
-**Step 3: Search for papers.**
-
-**Step 4: Retrieve relevant documents.**
-
-**Step 5: Analyze the papers.**
-
-**Step 6: Compare their results.**
-
-**Step 7: Determine whether enough evidence exists.**
-
-**Step 8: Search again if information is missing.**
-
-**Step 9: Generate the final report.**
+<ol class="step-list">
+  <li class="step"><span class="step-num">1</span><div class="step-body"><p>Understand the goal.</p></div></li>
+  <li class="step"><span class="step-num">2</span><div class="step-body"><p>Create a plan.</p></div></li>
+  <li class="step"><span class="step-num">3</span><div class="step-body"><p>Search for papers.</p></div></li>
+  <li class="step"><span class="step-num">4</span><div class="step-body"><p>Retrieve relevant documents.</p></div></li>
+  <li class="step"><span class="step-num">5</span><div class="step-body"><p>Analyze the papers.</p></div></li>
+  <li class="step"><span class="step-num">6</span><div class="step-body"><p>Compare their results.</p></div></li>
+  <li class="step"><span class="step-num">7</span><div class="step-body"><p>Determine whether enough evidence exists.</p></div></li>
+  <li class="step"><span class="step-num">8</span><div class="step-body"><p>Search again if information is missing.</p></div></li>
+  <li class="step"><span class="step-num">9</span><div class="step-body"><p>Generate the final report.</p></div></li>
+</ol>
 
 This repeated process is the agent loop.
 

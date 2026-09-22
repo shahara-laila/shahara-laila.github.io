@@ -6,10 +6,10 @@ categories: [ai, agents]
 tags: [ai-agents, llm, agent-harness, tool-calling, rag]
 math: false
 comments: true
-excerpt: "An LLM generates answers. An agent gets things done. The difference isn't the model — it's the harness of tools, memory, and control built around it. Here's how that system fits together."
+excerpt: "An LLM generates answers. An agent gets things done. The difference isn't the model. It's the harness of tools, memory, and control built around it. Here's how that system fits together."
 ---
 
-AI is moving past systems that just generate answers. Modern systems increasingly *do* things — call external tools, retrieve information, and work through several steps toward a goal. That shift is what takes us from a plain Large Language Model (LLM) to an AI **agent**.
+AI is moving past systems that just generate answers. Modern systems increasingly *do* things: call external tools, retrieve information, and work through several steps toward a goal. That shift is what takes us from a plain Large Language Model (LLM) to an AI **agent**.
 
 So what actually separates the two? Not the model itself. It's the system built around it.
 
@@ -21,7 +21,7 @@ A traditional LLM application is simple:
 User → Prompt → LLM → Response
 ```
 
-Ask *"Explain convolutional neural networks."* — the model reads the prompt, produces an explanation, and stops. For a huge range of tasks, that's exactly what you want.
+Ask *"Explain convolutional neural networks."* The model reads the prompt, produces an explanation, and stops. For a huge range of tasks, that's exactly what you want.
 
 Now consider something heavier:
 
@@ -45,7 +45,7 @@ An AI agent is an AI system that works toward a goal using reasoning, tools, ext
 AI Agent = LLM + Tools + Knowledge + Memory + Planning + Action + Feedback
 ```
 
-The LLM is the reasoning engine — but the LLM alone is not the agent.
+The LLM is the reasoning engine, but the LLM alone is not the agent.
 
 Think of a human. The brain reasons, but the brain by itself can't *do* anything physical. You need eyes, hands, memory, tools, and interaction with the world. An agent is the same: the LLM supplies reasoning and language, and the components around it let the system fetch information and take action.
 
@@ -55,7 +55,7 @@ So `AI Agent ≠ LLM`. Instead, `AI Agent = LLM + Tools + Context + Actions + Fe
 
 The most important idea in modern agent architecture is the **agent harness**.
 
-Picture a vehicle. The engine provides power, but a working vehicle also needs steering, brakes, sensors, controls, and safety mechanisms. The LLM is the engine — powerful, but it needs infrastructure around it to actually drive. That infrastructure is the harness.
+Picture a vehicle. The engine provides power, but a working vehicle also needs steering, brakes, sensors, controls, and safety mechanisms. The LLM is the engine: powerful, but it needs infrastructure around it to actually drive. That infrastructure is the harness.
 
 A harness typically includes:
 
@@ -77,7 +77,7 @@ In short: the harness gives an LLM the structure and control it needs to operate
 
 An LLM doesn't automatically have access to the outside world. Out of the box it usually *can't* reach private databases, local files, current external information, APIs, organizational systems, real-time calculations, or other software.
 
-Ask *"What's today's weather?"* — the system needs a weather tool. Ask *"Answer questions about our internal documents."* — it needs a retrieval mechanism that can read those documents.
+Ask *"What's today's weather?"* The system needs a weather tool. Ask *"Answer questions about our internal documents."* It needs a retrieval mechanism that can read those documents.
 
 A simplified formula:
 
@@ -91,12 +91,12 @@ The harness is what coordinates all of those pieces.
 
 Compared to a bare LLM, an agent adds a handful of capabilities:
 
-- **Reasoning** — analyze a task and work out what needs to happen.
-- **Planning** — break a complex task into smaller steps.
-- **Tool use** — reach for external tools: search engines, APIs, Python, databases, file systems.
-- **Memory and context** — pull in relevant information from earlier interactions or stored data.
-- **Feedback** — observe the result of an action and decide what to do next.
-- **Iteration** — if the task isn't done, keep working instead of stopping.
+- **Reasoning**: analyze a task and work out what needs to happen.
+- **Planning**: break a complex task into smaller steps.
+- **Tool use**: reach for external tools: search engines, APIs, Python, databases, file systems.
+- **Memory and context**: pull in relevant information from earlier interactions or stored data.
+- **Feedback**: observe the result of an action and decide what to do next.
+- **Iteration**: if the task isn't done, keep working instead of stopping.
 
 ## Tools: Giving AI the Ability to Act
 
@@ -125,4 +125,4 @@ The easiest way to remember the first part is:
 
 The idea to hold onto is that an AI agent is a *complete system*, not just an LLM. The LLM supplies the intelligence and the language ability; the harness, tools, memory, and control mechanisms are what let that intelligence get applied to real work.
 
-The move from LLMs to AI agents is a move from **answer generation** to **task execution** — and understanding the harness is the key to seeing why.
+The move from LLMs to AI agents is a move from **answer generation** to **task execution**, and understanding the harness is the key to seeing why.
